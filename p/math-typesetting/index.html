@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://prts.github.io/p/math-typesetting/'>
 
-<link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="Math Typesetting">
+<link rel="stylesheet" href="/scss/style.min.c45f33b2d5456850d4a2c5e8f11abe041a8b1c80fe99647671f39e824f830b7f.css"><meta property='og:title' content="Math Typesetting">
 <meta property='og:description' content="A brief guide to setup KaTeX">
 <meta property='og:url' content='https://prts.github.io/p/math-typesetting/'>
 <meta property='og:site_name' content='高志豪的个人博客'>
@@ -528,6 +528,80 @@ $$</p>
         document.head.appendChild(customFont);
     }());
 </script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+</head>
+<body>
+	
+	<meting-js
+			server="netease"
+			type="playlist"
+			id="13784477821"
+			fixed="true"
+		>
+	</meting-js>
+
+	<div id="pageContent">
+		
+	</div>
+	<div id="aplayerContent">
+		
+	</div>
+
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+
+
+
+<script src=https://prts.github.io/js/topbar.min.js></script>
+
+
+<script>
+    var pjax = new Pjax({
+        selectors: [".main-container"]
+    })
+
+    pjax._handleResponse = pjax.handleResponse;
+
+    pjax.handleResponse = function(responseText, request, href, options) {
+        if (request.responseText.match("<html")) {
+            
+            let newDom = new DOMParser().parseFromString(responseText, 'text/html');
+            
+            let bodyClass = newDom.body.className;
+            document.body.setAttribute("class", bodyClass)
+            pjax._handleResponse(responseText, request, href, options);
+            
+        }
+    }
+
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+
+    document.addEventListener('pjax:send', () => {
+        topbar.show();
+    })
+
+    document.addEventListener('pjax:complete', () =>{
+        window.Stack.init();
+
+        topbar.hide();
+    })
+</script>
+
 
     </body>
 </html>
