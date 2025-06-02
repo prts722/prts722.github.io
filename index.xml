@@ -195,7 +195,7 @@
 </description>
         </item>
         <item>
-        <title>归档</title>
+        <title>归档 | Archives</title>
         <link>https://prts722.github.io/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
@@ -536,16 +536,7 @@ $$&lt;/p&gt;</description>
 &lt;/div&gt;</description>
         </item>
         <item>
-        <title>关于</title>
-        <link>https://prts722.github.io/%E5%85%B3%E4%BA%8E/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>https://prts722.github.io/%E5%85%B3%E4%BA%8E/</guid>
-        <description>&lt;p&gt;This is a test page for i18n support.&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>搜索</title>
+        <title>搜索 | Search</title>
         <link>https://prts722.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
@@ -553,11 +544,11 @@ $$&lt;/p&gt;</description>
         <description></description>
         </item>
         <item>
-        <title>学习链接</title>
-        <link>https://prts722.github.io/%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/</link>
+        <title>学习链接 | Links</title>
+        <link>https://prts722.github.io/%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5-links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://prts722.github.io/%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5/</guid>
+        <guid>https://prts722.github.io/%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5-links/</guid>
         <description></description>
         </item>
         
