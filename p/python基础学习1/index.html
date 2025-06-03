@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="基础语法的使用">
+<title>Python基础学习1</title>
+
+<link rel='canonical' href='https://prts722.github.io/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A01/'>
+
+<link rel="stylesheet" href="/scss/style.min.48aa70d48d1b3326899580cce45d31f99379cc9f2609ac812a6bd9cca061f309.css"><meta property='og:title' content="Python基础学习1">
+<meta property='og:description' content="基础语法的使用">
+<meta property='og:url' content='https://prts722.github.io/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A01/'>
+<meta property='og:site_name' content='boke（暂用名）'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-01-17T15:02:17&#43;08:00'/><meta property='article:modified_time' content='2024-01-17T15:02:17&#43;08:00'/><meta property='og:image' content='https://prts722.github.io/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A01/%E5%B0%81%E9%9D%A2%E5%9B%BE.png' />
+<meta name="twitter:title" content="Python基础学习1">
+<meta name="twitter:description" content="基础语法的使用"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://prts722.github.io/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A01/%E5%B0%81%E9%9D%A2%E5%9B%BE.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/%E5%A4%B4%E5%83%8F_hu3470872027830784231.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">♐</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">boke（暂用名）</a></h1>
+            <h2 class="site-description">记录自己编程学习的过程和经验</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/318825048?spm_id_from=333.1369.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/prts722'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页 | Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档 | Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索 | Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5-links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>学习链接 | Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#小记">小记</a></li>
+    <li><a href="#python的基础语法及数据类型">Python的基础语法及数据类型</a>
+      <ol>
+        <li><a href="#21-标识符">2.1 标识符</a></li>
+        <li><a href="#22-基本数据类型">2.2 基本数据类型</a></li>
+      </ol>
+    </li>
+    <li><a href="#运算符">运算符</a>
+      <ol>
+        <li><a href="#31-算数运算符">3.1 算数运算符</a></li>
+        <li><a href="#32-比较运算符">3.2 比较运算符</a></li>
+        <li><a href="#33-位运算符">3.3 位运算符</a></li>
+        <li><a href="#34-逻辑运算符">3.4 逻辑运算符</a></li>
+        <li><a href="#35-成员运算符and身份运算符">3.5 成员运算符and身份运算符</a></li>
+      </ol>
+    </li>
+    <li><a href="#字符串">字符串</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A01/">
+                <img src="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A01/%E5%B0%81%E9%9D%A2%E5%9B%BE_hu14002656033561138273.png"
+                        srcset="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A01/%E5%B0%81%E9%9D%A2%E5%9B%BE_hu14002656033561138273.png 800w, /p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A01/%E5%B0%81%E9%9D%A2%E5%9B%BE_hu17982954556156047942.png 1600w"
+                        width="800" 
+                        height="500" 
+                        loading="lazy"
+                        alt="Featured image of post Python基础学习1" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/python/" >
+                Python
+            </a>
+        
+            <a href="/categories/%E8%87%AA%E5%AD%A6%E8%AE%B0%E5%BD%95/" >
+                自学记录
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A01/">Python基础学习1</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            基础语法的使用
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-1-17</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="小记">小记
+</h2><blockquote>
+<p>使用python前需要下载python和解释器并配置环境变量，下面简单提一下<br>
+下载Python：访问官网 <a class="link" href="https://www.python.org/downloads/"  target="_blank" rel="noopener"
+    >https://www.python.org/downloads/</a> 自己选择合适版本的Python安装包<br>
+安装Python：运行安装包，记得勾选&quot;Add Python to PATH&quot;选项，这样可以在命令行中直接使用Python<br>
+验证安装：打开命令行（Windows下为cmd，Mac/Linux下为终端），输入python &ndash;version，如果显示Python版本号，说明安装成功<br>
+选择IDE：推荐使用PyCharm或Visual Studio Code作为开发环境，这里我选择的是pycharm</p>
+</blockquote>
+<hr>
+<h2 id="python的基础语法及数据类型">Python的基础语法及数据类型
+</h2><h3 id="21-标识符">2.1 标识符
+</h3><p>第一个字符必须以字母（a-z, A-Z）或下划线_组成<br>
+标识符的其他的部分由字母、数字和下划线组成<br>
+标识符对大小写敏感，count 和 Count 是不同的标识符<br>
+标识符对长度无硬性限制，但建议保持简洁（一般不超过 20 个字符）<br>
+禁止使用保留关键字，如 if、for、class 等不能作为标识符<br></p>
+<p><strong>合法标识符</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">age</span> <span class="o">=</span> <span class="mi">22</span>
+</span></span><span class="line"><span class="cl"><span class="nx">user_name</span> <span class="o">=</span> <span class="s2">&#34;斯卡蒂&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">_total</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="nx">MAX_SIZE</span> <span class="o">=</span> <span class="mi">1024</span>
+</span></span><span class="line"><span class="cl"><span class="nx">calculate_area</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">StudentInfo</span>
+</span></span><span class="line"><span class="cl"><span class="nx">__private_var</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>非法标识符</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="mi">2</span><span class="nx">nd_place</span> <span class="o">=</span> <span class="s2">&#34;银灰&#34;</span>      <span class="err">#</span> <span class="nx">错误</span><span class="err">：</span><span class="nx">以数字开头</span>
+</span></span><span class="line"><span class="cl"><span class="nx">user</span><span class="o">-</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&#34;大亚当&#34;</span>       <span class="err">#</span> <span class="nx">错误</span><span class="err">：</span><span class="nx">包含连字符</span>
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="o">=</span> <span class="s2">&#34;class&#34;</span>               <span class="err">#</span> <span class="nx">错误</span><span class="err">：</span><span class="nx">使用关键字</span>
+</span></span><span class="line"><span class="cl"><span class="nx">$price</span> <span class="o">=</span> <span class="mf">9.99</span>                  <span class="err">#</span> <span class="nx">错误</span><span class="err">：</span><span class="nx">包含特殊字符</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="o">=</span> <span class="s2">&#34;loop&#34;</span>                   <span class="err">#</span> <span class="nx">错误</span><span class="err">：</span><span class="nx">使用关键字</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="22-基本数据类型">2.2 基本数据类型
+</h3><p>常见的数据类型有以下几种：</p>
+<ul>
+<li>Number（数字）</li>
+<li>String（字符串）</li>
+<li>bool（布尔类型）</li>
+<li>List（列表）</li>
+<li>Tuple（元组）</li>
+<li>Set（集合）</li>
+<li>Dictionary（字典）</li>
+</ul>
+<p>其中<strong>数字</strong>类型支持<em>int(整型),float(浮点型),bool(布尔型),complex(复数)</em>,字符串在使用中用引号&quot; &ldquo;包裹,布尔类型只有两个，为<em>true</em>和<em>false</em><br>
+<em>List、Tuple、Set、Dictionary</em>比较复杂，会专门写一篇学习记录（绝不是因为还在学习）</p>
+<hr>
+<h2 id="运算符">运算符
+</h2><h3 id="31-算数运算符">3.1 算数运算符
+</h3><blockquote>
+<p>尽量全记录下来方便后期查阅使用^^</p>
+</blockquote>
+<p>算数运算符有以下几种</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>运算符</th>
+          <th>描述</th>
+          <th>实例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>+</td>
+          <td>加 - 两个对象相加</td>
+          <td>假设a=10,b=11(下面通用)，a + b 输出结果 21</td>
+      </tr>
+      <tr>
+          <td>-</td>
+          <td>减 - 得到负数或是一个数减去另一个数</td>
+          <td>a - b 输出结果 -1</td>
+      </tr>
+      <tr>
+          <td>*</td>
+          <td>乘 - 两个数相乘或是返回一个被重复若干次的字符串</td>
+          <td>a * b 输出结果 110</td>
+      </tr>
+      <tr>
+          <td>/</td>
+          <td>除 - x 除以 y</td>
+          <td>b / a 输出结果 1.1</td>
+      </tr>
+      <tr>
+          <td>%</td>
+          <td>取模 - 返回除法的余数</td>
+          <td>b % a 输出结果 1</td>
+      </tr>
+      <tr>
+          <td>**</td>
+          <td>幂 - 返回x的y次幂</td>
+          <td>a**b 为10的11次方</td>
+      </tr>
+      <tr>
+          <td>//</td>
+          <td>取整除 - 往小的方向取整数</td>
+          <td>9//2结果为4</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>(+也可用于字符串之间的连接，和方法.jion()相似)</p>
+<h3 id="32-比较运算符">3.2 比较运算符
+</h3><p>比较运算符有以下几种(假设a为1，b为2)</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>运算符</th>
+          <th>描述</th>
+          <th>实例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>==</td>
+          <td>等于 - 比较对象是否相等</td>
+          <td>(a == b) 返回 False</td>
+      </tr>
+      <tr>
+          <td>！=</td>
+          <td>不等于 - 比较两个对象是否不相等</td>
+          <td>(a != b) 返回 True</td>
+      </tr>
+      <tr>
+          <td>&gt;</td>
+          <td>大于 - 返回x是否大于y</td>
+          <td>(a &gt; b) 返回 False</td>
+      </tr>
+      <tr>
+          <td>&lt;</td>
+          <td>小于 - 返回x是否小于y。所有比较运算符返回1表示真，返回0表示假。</td>
+          <td>(a &lt; b) 返回 True</td>
+      </tr>
+      <tr>
+          <td>&gt;=</td>
+          <td>大于等于 - 返回x是否大于等于y。</td>
+          <td>(a &gt;= b) 返回 False</td>
+      </tr>
+      <tr>
+          <td>&lt;=</td>
+          <td>小于等于 - 返回x是否小于等于y。</td>
+          <td>(a &lt;= b) 返回 True</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>(目前来说if判断中用到的多一点)</p>
+<h3 id="33-位运算符">3.3 位运算符
+</h3><p>位运算符我查了一下，说是按照二进制来计算的，emmm反正会用就行，大致有以下几种(假设a=60，b=13)</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>运算符</th>
+          <th>描述</th>
+          <th>实例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>&amp;</td>
+          <td>按位与运算符：参与运算的两个值,如果两个相应位都为1,则该位的结果为1,否则为0</td>
+          <td>(a &amp; b) 输出结果 12</td>
+      </tr>
+      <tr>
+          <td>|</td>
+          <td>按位或运算符：只要对应的二个二进位有一个为1时，结果位就为1</td>
+          <td>(a | b) 输出结果 61</td>
+      </tr>
+      <tr>
+          <td>^</td>
+          <td>按位异或运算符：当两对应的二进位相异时，结果为1</td>
+          <td>(a ^ b) 输出结果 49</td>
+      </tr>
+      <tr>
+          <td>~</td>
+          <td>按位取反运算符：对数据的每个二进制位取反,即把1变为0,把0变为1。~x 类似于 -x-1</td>
+          <td>(~a ) 输出结果 -61</td>
+      </tr>
+      <tr>
+          <td>&laquo;</td>
+          <td>左移动运算符：运算数的各二进位全部左移若干位，由&rdquo;&laquo;&ldquo;右边的数指定移动的位数，高位丢弃，低位补0</td>
+          <td>a &laquo; 2 输出结果 240</td>
+      </tr>
+      <tr>
+          <td>&raquo;</td>
+          <td>右移动运算符：把&rdquo;&raquo;&ldquo;左边的运算数的各二进位全部右移若干位，&quot;&raquo;&ldquo;右边的数指定移动的位数</td>
+          <td>a &raquo; 2 输出结果 15</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="34-逻辑运算符">3.4 逻辑运算符
+</h3><p>与、或、非（假设a=10，b=20）</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>运算符</th>
+          <th>逻辑表达式</th>
+          <th>描述</th>
+          <th>实例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>and</td>
+          <td>x and y</td>
+          <td>&ldquo;与&rdquo; - 如果 x 为 False，x and y 返回 x 的值，否则返回 y 的计算值</td>
+          <td>(a and b) 返回 20</td>
+      </tr>
+      <tr>
+          <td>or</td>
+          <td>x or y</td>
+          <td>&ldquo;或&rdquo; - 如果 x 是 True，它返回 x 的值，否则它返回 y 的计算值</td>
+          <td>(a or b) 返回 10</td>
+      </tr>
+      <tr>
+          <td>not</td>
+          <td>not x</td>
+          <td>布尔&quot;非&rdquo; - 如果 x 为 True，返回 False 。如果 x 为 False，它返回 True</td>
+          <td>not(a and b) 返回 False</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="35-成员运算符and身份运算符">3.5 成员运算符and身份运算符
+</h3><p>用的不多但是也用过</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>运算符</th>
+          <th>描述</th>
+          <th>实例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>in</td>
+          <td>如果在指定的序列中找到值返回 True，否则返回 False</td>
+          <td>x 在 y 序列中 , 如果 x 在 y 序列中返回 True</td>
+      </tr>
+      <tr>
+          <td>not in</td>
+          <td>如果在指定的序列中没有找到值返回 True，否则返回 False</td>
+          <td>x 不在 y 序列中 , 如果 x 不在 y 序列中返回 True</td>
+      </tr>
+      <tr>
+          <td>is</td>
+          <td>is 是判断两个标识符是不是引用自一个对象</td>
+          <td>x is y, 类似 id(x) == id(y) , 如果引用的是同一个对象则返回 True，否则返回 False</td>
+      </tr>
+      <tr>
+          <td>is not</td>
+          <td>is not 是判断两个标识符是不是引用自不同对象</td>
+          <td>x is not y ， 类似 id(x) != id(y)。如果引用的不是同一个对象则返回结果 True，否则返回 False</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="字符串">字符串
+</h2><blockquote>
+<p>字符串部分的知识点更多更杂，先记录几个经常用的
+假设字符串a为ark，字符串b为nights</p>
+</blockquote>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>操作符</th>
+          <th>描述</th>
+          <th>实例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>+</td>
+          <td>字符串连接（对应的有个方法叫.jion（）也是用来连接字符串的,不过一般作用于列表和元组等）</td>
+          <td>a+b = arknights（）</td>
+      </tr>
+      <tr>
+          <td>*</td>
+          <td>重复输出字符串</td>
+          <td>a*2 输出结果:arkark</td>
+      </tr>
+      <tr>
+          <td>[ : ]</td>
+          <td>截取字符串中的一部分，遵循左闭右开原则，例如str[0:2] 是不包含第 3 个字符的</td>
+          <td>b[1:4] 输出结果 igh</td>
+      </tr>
+      <tr>
+          <td>%</td>
+          <td>格式字符串（和.format()一样）</td>
+          <td>见下面代码</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>格式化字符串%和.format相似<br></p>
+<ul>
+<li>% 形式</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Runoob&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;Hello %s&#39;</span> <span class="o">%</span> <span class="nx">name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">输出</span><span class="s1">&#39;Hello Runoob&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>.format()形式（f形式）</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;Runoob&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">f</span><span class="s1">&#39;Hello {name}&#39;</span>  <span class="err">#</span> <span class="nx">替换变量</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;Hello {}&#39;</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="err">#</span> <span class="nx">同上</span><span class="err">，</span><span class="nx">上面的是简化写法</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">输出</span><span class="s1">&#39;Hello Runoob&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">f</span><span class="s1">&#39;{1+2}&#39;</span>         <span class="err">#</span> <span class="nx">使用表达式</span>
+</span></span><span class="line"><span class="cl"><span class="nx">输出</span><span class="s1">&#39;3&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">w</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Runoob&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="o">:</span> <span class="s1">&#39;www.runoob.com&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">f</span><span class="s1">&#39;{w[&#34;name&#34;]}: {w[&#34;url&#34;]}&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">输出</span><span class="s1">&#39;Runoob: www.runoob.com&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A02/">
+        
+        
+            <div class="article-image">
+                <img src="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A02/%E5%B0%81%E9%9D%A2%E5%9B%BE.6d52b033aa0c7c3d51582752430ff428_hu16600578530541694614.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Python基础学习2"
+                        
+                        data-hash="md5-bVKwM6oMfD1RWCdSQw/0KA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python基础学习2</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2025 高志豪的个人博客
+    </section>
+    
+    <section class="powerby">
+        
+
+            </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+</head>
+<body>
+	
+	<meting-js
+			server="netease"
+			type="playlist"
+			id="13784477821"
+			fixed="true"
+		>
+	</meting-js>
+
+	<div id="pageContent">
+		
+	</div>
+	<div id="aplayerContent">
+		
+	</div>
+
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+
+
+
+<script src=https://prts722.github.io/js/topbar.min.js></script>
+
+
+<script>
+    var pjax = new Pjax({
+        selectors: [
+            ".main-container"
+        ]
+
+    })
+
+    pjax._handleResponse = pjax.handleResponse;
+
+    pjax.handleResponse = function(responseText, request, href, options) {
+        if (request.responseText.match("<html")) {
+            
+            let newDom = new DOMParser().parseFromString(responseText, 'text/html');
+            
+            let bodyClass = newDom.body.className;
+            document.body.setAttribute("class", bodyClass)
+            pjax._handleResponse(responseText, request, href, options);
+            
+        }
+    }
+
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+
+    document.addEventListener('pjax:send', () => {
+        topbar.show();
+    })
+
+    document.addEventListener('pjax:complete', () =>{
+        window.Stack.init();
+        initCodeMoreBox();
+        
+        topbar.hide();
+    })
+
+</script>
+
+
+<div id="particles-js"></div>
+<script src=https://prts722.github.io/background/particles.min.js></script>
+
+<style>
+  @font-face {
+    font-family: '马路口圆体';
+    src: url(https://prts722.github.io/font/%E9%A9%AC%E8%B7%AF%E5%8F%A3%E5%9C%86%E4%BD%93.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: '马路口圆体';
+    --code-font-family: '马路口圆体';
+  }
+
+  #TableOfContents > ul, ol {
+      ul, ol {
+          display: none;
+      }
+      .open {
+          display: block;
+      }
+  }
+
+
+   
+  #backTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      z-index: 99;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      background-image: url(https://prts722.github.io/icons/backTop.svg);
+  }
+   
+  .highlight {
+       
+      max-height: 400px;
+      overflow: hidden;
+  }
+
+  .code-show {
+      max-height: none !important;
+  }
+
+  .code-more-box {
+      width: 100%;
+      padding-top: 78px;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+  }
+
+  .code-more-btn {
+      display: block;
+      margin: auto;
+      width: 44px;
+      height: 22px;
+      background: #f0f0f5;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      padding-top: 6px;
+      cursor: pointer;
+  }
+
+  .code-more-img {
+      cursor: pointer !important;
+      display: block;
+      margin: auto;
+      width: 22px;
+      height: 16px;
+  }
+
+  #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+  }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                    ul.classList.remove("open")
+                })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+    
+
+    function initScrollTop() {
+        let rightSideBar = document.querySelector(".right-sidebar");
+        if (!rightSideBar) {
+            return;
+        }
+        
+        let btn = document.createElement("div");
+        btn.id = "backTopBtn";
+        btn.onclick = backToTop
+        rightSideBar.appendChild(btn)
+        
+        window.onscroll = function() {
+            
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+    }
+
+    
+
+    function backToTop(){
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
+    initScrollTop();
+
+    
+    function initCodeMoreBox() {
+        let codeBlocks = document.querySelectorAll(".highlight");
+        if (!codeBlocks) {
+            return;
+        }
+        codeBlocks.forEach(codeBlock => {
+            
+            if (codeBlock.scrollHeight <= codeBlock.clientHeight) {
+                return;
+            }
+            
+            
+            let codeMoreBox = document.createElement('div');
+            codeMoreBox.classList.add('code-more-box');
+            
+            let codeMoreBtn = document.createElement('span');
+            codeMoreBtn.classList.add('code-more-btn');
+            codeMoreBtn.addEventListener('click', () => {
+                codeBlock.classList.add('code-show');
+                codeMoreBox.style.display = 'none';
+                
+                window.dispatchEvent(new Event('resize'))
+            })
+            
+            let img = document.createElement('img');
+            img.classList.add('code-more-img');
+            img.src = "https://prts722.github.io/icons/codeMore.png"
+            
+            codeMoreBtn.appendChild(img);
+            codeMoreBox.appendChild(codeMoreBtn);
+            codeBlock.appendChild(codeMoreBox)
+        })
+    }
+
+    initCodeMoreBox();
+    particlesJS.load('particles-js', "https://prts722.github.io/background/particlesjs-config.json", function() {
+        console.log('particles.js loaded - callback');
+    });
+
+    const cssPath = "https://prts722.github.io/waifu/waifu.css"
+    const waifuTipsJsonPath = "https://prts722.github.io/waifu/waifu-tips.json"
+    const tipsJsonPath = "https://prts722.github.io/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+            loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            
+            initWidget({
+                waifuPath: waifuTipsJsonPath,
+                cdnPath: "https://cdn.jsdelivr.net/gh/prts722/static-resource@v1.0.0",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+            initWaifuMouseEvent();
+        });
+    }
+
+    function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+        
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+
+</script>
+    </body>
+</html>
