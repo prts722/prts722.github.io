@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://prts722.github.io/p/%E6%96%87%E7%AB%A0%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/'>
 
-<link rel="stylesheet" href="/scss/style.min.42c8220783d7ee6dc6d4e6e91193e9ec359fdf31ad8e1801d7dd3548cf149495.css"><meta property='og:title' content="文章功能测试">
+<link rel="stylesheet" href="/scss/style.min.48aa70d48d1b3326899580cce45d31f99379cc9f2609ac812a6bd9cca061f309.css"><meta property='og:title' content="文章功能测试">
 <meta property='og:description' content="1111222 3\n测试使用，代码是瞎复制的文件\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 function initCodeMoreBox() { let codeBlocks = document.querySelectorAll(&#34;.highlight&#34;); if (!codeBlocks) { return; } codeBlocks.forEach(codeBlock =&gt; { // 校验是否overflow if (codeBlock.scrollHeight &lt;= codeBlock.clientHeight) { return; } // 元素初始化 // codeMoreBox let codeMoreBox = document.createElement(&#39;div&#39;); codeMoreBox.classList.add(&#39;code-more-box&#39;); // codeMoreBtn let codeMoreBtn = document.createElement(&#39;span&#39;); codeMoreBtn.classList.add(&#39;code-more-btn&#39;); codeMoreBtn.addEventListener(&#39;click&#39;, () =&gt; { codeBlock.classList.add(&#39;code-show&#39;); codeMoreBox.style.display = &#39;none&#39;; // 触发resize事件，重新计算目录位置 window.dispatchEvent(new Event(&#39;resize&#39;)) }) // img let img = document.createElement(&#39;img&#39;); img.classList.add(&#39;code-more-img&#39;); img.src = {{ (resources.Get &#34;icons/codeMore.png&#34;).Permalink }} // 元素添加 codeMoreBtn.appendChild(img); codeMoreBox.appendChild(codeMoreBtn); codeBlock.appendChild(codeMoreBox) }) } initCodeMoreBox(); ">
 <meta property='og:url' content='https://prts722.github.io/p/%E6%96%87%E7%AB%A0%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95/'>
 <meta property='og:site_name' content='高志豪的个人博客'>
@@ -632,11 +632,6 @@
       }
   }
 
-  body {
-      background: url(https://prts722.github.io/background/back.png) no-repeat center top;
-  background-size: cover;
-  background-attachment: fixed;
-  }
 
    
   #backTopBtn {
@@ -806,6 +801,7 @@
     });
 
     const cssPath = "https://prts722.github.io/waifu/waifu.css"
+    const waifuTipsJsonPath = "https://prts722.github.io/waifu/waifu-tips.json"
     const tipsJsonPath = "https://prts722.github.io/waifu/waifu-tips.json"
     
     const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
@@ -840,12 +836,59 @@
         ]).then(() => {
             
             initWidget({
-                waifuPath: tipsJsonPath,
-                cdnPath: "https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/",
+                waifuPath: waifuTipsJsonPath,
+                cdnPath: "http://cdn.jsdelivr.net/gh/prts722/static-resource@v1.0.0",
                 tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
             });
+            initWaifuMouseEvent();
         });
     }
+
+    function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+        
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+
 </script>
     </body>
 </html>
