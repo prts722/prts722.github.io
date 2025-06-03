@@ -606,6 +606,7 @@
 
 <div id="particles-js"></div>
 <script src=https://prts722.github.io/background/particles.min.js></script>
+
 <style>
   @font-face {
     font-family: '马路口圆体';
@@ -624,6 +625,12 @@
       .open {
           display: block;
       }
+  }
+
+  body {
+      background: url(https://prts722.github.io/background/back.png) no-repeat center top;
+  background-size: cover;
+  background-attachment: fixed;
   }
 
    
@@ -792,6 +799,48 @@
     particlesJS.load('particles-js', "https://prts722.github.io/background/particlesjs-config.json", function() {
         console.log('particles.js loaded - callback');
     });
+
+    const cssPath = "https://prts722.github.io/waifu/waifu.css"
+    const tipsJsonPath = "https://prts722.github.io/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+            loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            
+            initWidget({
+                waifuPath: tipsJsonPath,
+                cdnPath: "https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+        });
+    }
 </script>
     </body>
 </html>
