@@ -1,13 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Categories on boke（暂用名）</title>
+        <title>Categories on 高志豪的个人博客</title>
         <link>https://prts722.github.io/categories/</link>
-        <description>Recent content in Categories on boke（暂用名）</description>
+        <description>Recent content in Categories on 高志豪的个人博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>高志豪的个人博客</copyright>
-        <lastBuildDate>Thu, 08 Feb 2024 21:58:54 +0800</lastBuildDate><atom:link href="https://prts722.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 01 Apr 2025 01:06:00 +0800</lastBuildDate><atom:link href="https://prts722.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Vue3</title>
+        <link>https://prts722.github.io/categories/vue3/</link>
+        <pubDate>Tue, 01 Apr 2025 01:06:00 +0800</pubDate>
+        
+        <guid>https://prts722.github.io/categories/vue3/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>实训笔记</title>
+        <link>https://prts722.github.io/categories/%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/</link>
+        <pubDate>Tue, 01 Apr 2025 01:06:00 +0800</pubDate>
+        
+        <guid>https://prts722.github.io/categories/%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Hugo</title>
         <link>https://prts722.github.io/categories/hugo/</link>
         <pubDate>Thu, 08 Feb 2024 21:58:54 +0800</pubDate>

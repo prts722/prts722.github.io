@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/scss/style.min.48aa70d48d1b3326899580cce45d31f99379cc9f2609ac812a6bd9cca061f309.css"><meta property='og:title' content="【插曲】hugo个人博客搭建">
 <meta property='og:description' content="简单记录一下心得">
 <meta property='og:url' content='https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/'>
-<meta property='og:site_name' content='boke（暂用名）'>
+<meta property='og:site_name' content='高志豪的个人博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-02-08T21:58:54&#43;08:00'/><meta property='article:modified_time' content='2024-02-08T21:58:54&#43;08:00'/><meta property='og:image' content='https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%B0%81%E9%9D%A2%E5%9B%BE.png' />
 <meta name="twitter:title" content="【插曲】hugo个人博客搭建">
 <meta name="twitter:description" content="简单记录一下心得"><meta name="twitter:card" content="summary_large_image">
@@ -70,7 +70,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">boke（暂用名）</a></h1>
+            <h1 class="site-name"><a href="/">高志豪的个人博客</a></h1>
             <h2 class="site-description">记录自己编程学习的过程和经验</h2>
         </div>
     </header><ol class="menu-social">
@@ -244,7 +244,9 @@
     <li><a href="#hugo下载与安装">Hugo下载与安装</a></li>
     <li><a href="#搭建博客">搭建博客</a>
       <ol>
-        <li><a href="#11-创建博客并配置主题">1.1 创建博客并配置主题</a></li>
+        <li><a href="#21-创建博客并配置主题">2.1 创建博客并配置主题</a></li>
+        <li><a href="#22-主题配置">2.2 主题配置</a></li>
+        <li><a href="#23-主题配置修改">2.3 主题配置修改</a></li>
       </ol>
     </li>
   </ol>
@@ -354,8 +356,9 @@
 	
 ></li>
 </ul>
+<hr>
 <h2 id="搭建博客">搭建博客
-</h2><h3 id="11-创建博客并配置主题">1.1 创建博客并配置主题
+</h2><h3 id="21-创建博客并配置主题">2.1 创建博客并配置主题
 </h3><ul>
 <li>唤起cmd，在命令提示框输入<code>hugo new site 【自定义文件名】</code>创建hugo文件。然后会给出几行命令提示，跟着这几步走便可以搭建好一个博客（因为我这个博客搭建的时候没截图所以借用教程的&hellip;）
 <img src="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/hugo%E6%90%AD%E5%BB%BA1.png"
@@ -372,8 +375,11 @@
 		data-flex-basis="763px"
 	
 >
-图片来源：莱特雷大佬【https://letere-gzj.github.io/hugo-stack/p/hugo/custom-blog/】
-根据上图提示，开始一步步搭建博客</li>
+图片来源：<a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugo/custom-blog/"  target="_blank" rel="noopener"
+    >莱特雷大佬</a></li>
+</ul>
+<p>根据上图提示，开始一步步搭建博客</p>
+<ul>
 <li>敲打命名cd 【自定义文件名】切换目录，并把hugo.exe复制到刚生成的文件夹中</li>
 <li>敲打命令hugo server -D启动服务，访问http://localhost:1313，Ctrl+C停止服务，但此时没有任何主题，只会显示page not found，但此时已经成功
 <img src="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%88%90.png"
@@ -391,7 +397,120 @@
 	
 ></li>
 </ul>
-<hr>
+<h3 id="22-主题配置">2.2 主题配置
+</h3><ul>
+<li>(1) 前往<a class="link" href="https://themes.gohugo.io/"  target="_blank" rel="noopener"
+    >Hugo Themes</a>，查找自己喜欢的主题，进行下载</li>
+<li>(2) 下载好主题后，将压缩包解压至<code>theme</code>文件夹中</li>
+<li>(3) 将<code>exampleSite</code>样例数据中的 <code>Content</code> 和 <code>hugo.yaml</code> 复制到主文件夹中，并删掉<code>hugo.toml</code>和<code>content/post/rich-content</code></li>
+<li>(4) 修改 <code>hugo.yaml</code> 中的 <code>theme</code>，将他修改为跟<strong>主题文件夹</strong>同名</li>
+<li>(5) 再次执行<code>hugo server -D</code>命令，可以看到主题已经配置成功</li>
+</ul>
+<p><img src="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/stack%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/stack%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE_hu7936559708300768824.png 480w, /p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/stack%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE_hu11093989012319810959.png 1024w"
+	loading="lazy"
+	
+		alt="stack主题配置"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+<h3 id="23-主题配置修改">2.3 主题配置修改
+</h3><blockquote>
+<p>不同主题配置文件各有不同，这里我根据自己的主题修改经验，仅记录几个心得和修改方式</p>
+</blockquote>
+<p><strong>修改前注意，尽量将配置文件写在主文件目录下，hugo是覆盖式，在主文件夹下进行的修改会覆盖主题的配置，这样做方便管理主题</strong></p>
+<ul>
+<li>(1) 语言修改
+在主文件夹下的<code>hugo.yaml</code>中可以看到各个样式的配置代码，stack主题默认是英文配置，可以在<code>DefaultContentLanguage</code>中将<code>en</code>改为<code>zh-cn</code>,这样语言就默认为中文主题了(这里我直接偷懒用现在的界面图了)</li>
+</ul>
+<p><img src="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E8%AF%AD%E8%A8%80%E9%85%8D%E7%BD%AE.png"
+	width="701"
+	height="187"
+	srcset="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E8%AF%AD%E8%A8%80%E9%85%8D%E7%BD%AE_hu17497847038391604550.png 480w, /p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E8%AF%AD%E8%A8%80%E9%85%8D%E7%BD%AE_hu16894037878529213377.png 1024w"
+	loading="lazy"
+	
+		alt="语言配置"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="374"
+		data-flex-basis="899px"
+	
+></p>
+<p><img src="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E4%B8%AD%E6%96%87%E7%95%8C%E9%9D%A2.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E4%B8%AD%E6%96%87%E7%95%8C%E9%9D%A2_hu7120858149078767065.png 480w, /p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E4%B8%AD%E6%96%87%E7%95%8C%E9%9D%A2_hu11046708950425098009.png 1024w"
+	loading="lazy"
+	
+		alt="中文界面"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+<ul>
+<li>(2) 字体修改<br>
+在hugo中，作者专门留了<code>assets</code>文件夹用来存放自定义配置文件，下面仅记录字体修改（反正未来没准也能用到其他的）</li>
+</ul>
+<p>前往<a class="link" href="https://www.100font.com/"  target="_blank" rel="noopener"
+    >100font</a>,下载自己想要的字体，将字体文件放入<code>assets/font</code>下（文件夹自己创建）</p>
+<p><img src="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6%E5%A4%B9.png"
+	width="1178"
+	height="793"
+	srcset="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6%E5%A4%B9_hu1448507855567949407.png 480w, /p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6%E5%A4%B9_hu9702462380981848984.png 1024w"
+	loading="lazy"
+	
+		alt="字体文件夹"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="148"
+		data-flex-basis="356px"
+	
+></p>
+<p>将以下代码修改并复制到<code>layouts/partials/footer/custom.html</code>文件中(文件不存在就自己创建)</p>
+<ul>
+<li><strong>字体名</strong>：给字体命名一个别名，随便填写就好，保持统一就行</li>
+<li><strong>字体文件名</strong>：字体文件的全名，带后缀名的，也就是 xxx.ttf</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">@</span><span class="nx">font</span><span class="o">-</span><span class="nx">face</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">font</span><span class="o">-</span><span class="nx">family</span><span class="o">:</span> <span class="s1">&#39;字体名&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">src</span><span class="o">:</span> <span class="nx">url</span><span class="p">({{</span> <span class="p">(</span><span class="nx">resources</span><span class="p">.</span><span class="nx">Get</span> <span class="s2">&#34;font/字体文件名&#34;</span><span class="p">).</span><span class="nx">Permalink</span> <span class="p">}})</span> <span class="nx">format</span><span class="p">(</span><span class="s1">&#39;truetype&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="o">:</span><span class="nx">root</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">--</span><span class="nx">base</span><span class="o">-</span><span class="nx">font</span><span class="o">-</span><span class="nx">family</span><span class="o">:</span> <span class="s1">&#39;字体名&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">--</span><span class="nx">code</span><span class="o">-</span><span class="nx">font</span><span class="o">-</span><span class="nx">family</span><span class="o">:</span> <span class="s1">&#39;字体名&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/style&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这样文字就修改好了</p>
 
 </section>
 

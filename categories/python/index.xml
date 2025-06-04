@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Python on boke（暂用名）</title>
+        <title>Python on 高志豪的个人博客</title>
         <link>https://prts722.github.io/categories/python/</link>
-        <description>Recent content in Python on boke（暂用名）</description>
+        <description>Recent content in Python on 高志豪的个人博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>高志豪的个人博客</copyright>

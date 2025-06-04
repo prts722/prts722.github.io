@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>自学记录 on boke（暂用名）</title>
+        <title>自学记录 on 高志豪的个人博客</title>
         <link>https://prts722.github.io/categories/%E8%87%AA%E5%AD%A6%E8%AE%B0%E5%BD%95/</link>
-        <description>Recent content in 自学记录 on boke（暂用名）</description>
+        <description>Recent content in 自学记录 on 高志豪的个人博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>高志豪的个人博客</copyright>
@@ -35,8 +35,9 @@
 	
 &gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;搭建博客&#34;&gt;搭建博客
-&lt;/h2&gt;&lt;h3 id=&#34;11-创建博客并配置主题&#34;&gt;1.1 创建博客并配置主题
+&lt;/h2&gt;&lt;h3 id=&#34;21-创建博客并配置主题&#34;&gt;2.1 创建博客并配置主题
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;唤起cmd，在命令提示框输入&lt;code&gt;hugo new site 【自定义文件名】&lt;/code&gt;创建hugo文件。然后会给出几行命令提示，跟着这几步走便可以搭建好一个博客（因为我这个博客搭建的时候没截图所以借用教程的&amp;hellip;）
 &lt;img src=&#34;https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/hugo%E6%90%AD%E5%BB%BA1.png&#34;
@@ -53,8 +54,11 @@
 		data-flex-basis=&#34;763px&#34;
 	
 &gt;
-图片来源：莱特雷大佬【https://letere-gzj.github.io/hugo-stack/p/hugo/custom-blog/】
-根据上图提示，开始一步步搭建博客&lt;/li&gt;
+图片来源：&lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/p/hugo/custom-blog/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;莱特雷大佬&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;根据上图提示，开始一步步搭建博客&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;敲打命名cd 【自定义文件名】切换目录，并把hugo.exe复制到刚生成的文件夹中&lt;/li&gt;
 &lt;li&gt;敲打命令hugo server -D启动服务，访问http://localhost:1313，Ctrl+C停止服务，但此时没有任何主题，只会显示page not found，但此时已经成功
 &lt;img src=&#34;https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%88%90.png&#34;
@@ -72,7 +76,120 @@
 	
 &gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt;
+&lt;h3 id=&#34;22-主题配置&#34;&gt;2.2 主题配置
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;(1) 前往&lt;a class=&#34;link&#34; href=&#34;https://themes.gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hugo Themes&lt;/a&gt;，查找自己喜欢的主题，进行下载&lt;/li&gt;
+&lt;li&gt;(2) 下载好主题后，将压缩包解压至&lt;code&gt;theme&lt;/code&gt;文件夹中&lt;/li&gt;
+&lt;li&gt;(3) 将&lt;code&gt;exampleSite&lt;/code&gt;样例数据中的 &lt;code&gt;Content&lt;/code&gt; 和 &lt;code&gt;hugo.yaml&lt;/code&gt; 复制到主文件夹中，并删掉&lt;code&gt;hugo.toml&lt;/code&gt;和&lt;code&gt;content/post/rich-content&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;(4) 修改 &lt;code&gt;hugo.yaml&lt;/code&gt; 中的 &lt;code&gt;theme&lt;/code&gt;，将他修改为跟&lt;strong&gt;主题文件夹&lt;/strong&gt;同名&lt;/li&gt;
+&lt;li&gt;(5) 再次执行&lt;code&gt;hugo server -D&lt;/code&gt;命令，可以看到主题已经配置成功&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/stack%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1020&#34;
+	srcset=&#34;https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/stack%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE_hu7936559708300768824.png 480w, https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/stack%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE_hu11093989012319810959.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;stack主题配置&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;188&#34;
+		data-flex-basis=&#34;451px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;23-主题配置修改&#34;&gt;2.3 主题配置修改
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;不同主题配置文件各有不同，这里我根据自己的主题修改经验，仅记录几个心得和修改方式&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;修改前注意，尽量将配置文件写在主文件目录下，hugo是覆盖式，在主文件夹下进行的修改会覆盖主题的配置，这样做方便管理主题&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(1) 语言修改
+在主文件夹下的&lt;code&gt;hugo.yaml&lt;/code&gt;中可以看到各个样式的配置代码，stack主题默认是英文配置，可以在&lt;code&gt;DefaultContentLanguage&lt;/code&gt;中将&lt;code&gt;en&lt;/code&gt;改为&lt;code&gt;zh-cn&lt;/code&gt;,这样语言就默认为中文主题了(这里我直接偷懒用现在的界面图了)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E8%AF%AD%E8%A8%80%E9%85%8D%E7%BD%AE.png&#34;
+	width=&#34;701&#34;
+	height=&#34;187&#34;
+	srcset=&#34;https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E8%AF%AD%E8%A8%80%E9%85%8D%E7%BD%AE_hu17497847038391604550.png 480w, https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E8%AF%AD%E8%A8%80%E9%85%8D%E7%BD%AE_hu16894037878529213377.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;语言配置&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;374&#34;
+		data-flex-basis=&#34;899px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E4%B8%AD%E6%96%87%E7%95%8C%E9%9D%A2.png&#34;
+	width=&#34;1920&#34;
+	height=&#34;1020&#34;
+	srcset=&#34;https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E4%B8%AD%E6%96%87%E7%95%8C%E9%9D%A2_hu7120858149078767065.png 480w, https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E4%B8%AD%E6%96%87%E7%95%8C%E9%9D%A2_hu11046708950425098009.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;中文界面&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;188&#34;
+		data-flex-basis=&#34;451px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(2) 字体修改&lt;br&gt;
+在hugo中，作者专门留了&lt;code&gt;assets&lt;/code&gt;文件夹用来存放自定义配置文件，下面仅记录字体修改（反正未来没准也能用到其他的）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前往&lt;a class=&#34;link&#34; href=&#34;https://www.100font.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;100font&lt;/a&gt;,下载自己想要的字体，将字体文件放入&lt;code&gt;assets/font&lt;/code&gt;下（文件夹自己创建）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6%E5%A4%B9.png&#34;
+	width=&#34;1178&#34;
+	height=&#34;793&#34;
+	srcset=&#34;https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6%E5%A4%B9_hu1448507855567949407.png 480w, https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6%E5%A4%B9_hu9702462380981848984.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;字体文件夹&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;148&#34;
+		data-flex-basis=&#34;356px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;将以下代码修改并复制到&lt;code&gt;layouts/partials/footer/custom.html&lt;/code&gt;文件中(文件不存在就自己创建)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;字体名&lt;/strong&gt;：给字体命名一个别名，随便填写就好，保持统一就行&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;字体文件名&lt;/strong&gt;：字体文件的全名，带后缀名的，也就是 xxx.ttf&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-JavaScript&#34; data-lang=&#34;JavaScript&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;font&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;face&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;font&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;family&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;字体名&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({{&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;resources&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Get&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;font/字体文件名&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Permalink&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}})&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;truetype&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;root&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;base&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;font&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;family&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;字体名&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;code&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;font&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;family&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;字体名&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/style&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这样文字就修改好了&lt;/p&gt;
 </description>
         </item>
         <item>

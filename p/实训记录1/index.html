@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="NodeJS配置">
+<title>实训记录1</title>
+
+<link rel='canonical' href='https://prts722.github.io/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/'>
+
+<link rel="stylesheet" href="/scss/style.min.48aa70d48d1b3326899580cce45d31f99379cc9f2609ac812a6bd9cca061f309.css"><meta property='og:title' content="实训记录1">
+<meta property='og:description' content="NodeJS配置">
+<meta property='og:url' content='https://prts722.github.io/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/'>
+<meta property='og:site_name' content='高志豪的个人博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-04-01T01:06:00&#43;08:00'/><meta property='article:modified_time' content='2025-04-01T01:06:00&#43;08:00'/><meta property='og:image' content='https://prts722.github.io/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/%E5%B0%81%E9%9D%A2%E5%9B%BE.png' />
+<meta name="twitter:title" content="实训记录1">
+<meta name="twitter:description" content="NodeJS配置"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://prts722.github.io/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/%E5%B0%81%E9%9D%A2%E5%9B%BE.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/%E5%A4%B4%E5%83%8F_hu3470872027830784231.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">♐</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">高志豪的个人博客</a></h1>
+            <h2 class="site-description">记录自己编程学习的过程和经验</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/318825048?spm_id_from=333.1369.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/prts722'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页 | Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档 | Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索 | Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5-links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>学习链接 | Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1开发环境安装与配置">1、开发环境安装与配置</a>
+      <ol>
+        <li><a href="#11安装-nodejs">1.1、安装 Node.js</a>
+          <ol>
+            <li><a href="#111下载并安装">1.1.1、下载并安装</a></li>
+            <li><a href="#112测试">1.1.2、测试</a></li>
+          </ol>
+        </li>
+        <li><a href="#12配置nodejs">1.2、配置Node.js</a>
+          <ol>
+            <li><a href="#121修改全局目录">1.2.1、修改全局目录</a></li>
+            <li><a href="#1211创建目录">1.2.1.1、创建目录</a></li>
+            <li><a href="#1212修改目录权限">1.2.1.2、修改目录权限</a></li>
+            <li><a href="#1213修改npm的默认目录">1.2.1.3、修改npm的默认目录</a></li>
+            <li><a href="#1214配置环境变量">1.2.1.4、配置环境变量</a></li>
+            <li><a href="#122配置镜像源">1.2.2、配置镜像源</a></li>
+            <li><a href="#123安装包管理工具">1.2.3、安装包管理工具</a></li>
+          </ol>
+        </li>
+        <li><a href="#13-npm--cnpm-命令">1.3 npm / cnpm 命令</a>
+          <ol>
+            <li><a href="#131-查看帮助信息">1.3.1 查看帮助信息</a></li>
+            <li><a href="#133配置管理">1.3.3、配置管理</a></li>
+            <li><a href="#134镜像管理">1.3.4、镜像管理</a></li>
+            <li><a href="#135包管理">1.3.5、包管理</a></li>
+            <li><a href="#1351命令">1.3.5.1、命令</a></li>
+            <li><a href="#13511命令参数">1.3.5.1.1、命令参数</a></li>
+            <li><a href="#13512版本号">1.3.5.1.2、版本号</a></li>
+            <li><a href="#136项目管理">1.3.6、项目管理</a></li>
+            <li><a href="#其他命令">其他命令</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/">
+                <img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/%E5%B0%81%E9%9D%A2%E5%9B%BE_hu15047129470048736473.png"
+                        srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/%E5%B0%81%E9%9D%A2%E5%9B%BE_hu15047129470048736473.png 800w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/%E5%B0%81%E9%9D%A2%E5%9B%BE_hu17694887396367763369.png 1600w"
+                        width="800" 
+                        height="358" 
+                        loading="lazy"
+                        alt="Featured image of post 实训记录1" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/vue3/" >
+                Vue3
+            </a>
+        
+            <a href="/categories/%E5%AE%9E%E8%AE%AD%E7%AC%94%E8%AE%B0/" >
+                实训笔记
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/">实训记录1</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            NodeJS配置
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-4-1</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>新的项目开始搭建，这次的前端使用的是Vue3,所以肯定需要配置NodeJS，下面是根据指导老师及个人理解所写成的笔记，有直接生成的部分这篇的观感可能一般</p>
+</blockquote>
+<h2 id="1开发环境安装与配置">1、开发环境安装与配置
+</h2><h3 id="11安装-nodejs">1.1、安装 Node.js
+</h3><h4 id="111下载并安装">1.1.1、下载并安装
+</h4><p>官方下载: <a class="link" href="https://nodejs.org/download/release/"  target="_blank" rel="noopener"
+    >https://nodejs.org/download/release/</a></p>
+<p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image002.jpg"
+	width="586"
+	height="460"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image002_hu1177145286380540038.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image002_hu16947744418680921264.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="305px"
+	
+></p>
+<p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image004.jpg"
+	width="586"
+	height="460"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image004_hu3567119631230103221.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image004_hu12825680752081185155.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="305px"
+	
+></p>
+<p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image006.jpg"
+	width="586"
+	height="460"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image006_hu12369690680013450053.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image006_hu11856400298207157003.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="305px"
+	
+></p>
+<p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image008.jpg"
+	width="586"
+	height="460"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image008_hu17803195117730970871.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image008_hu3355903719870164111.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="305px"
+	
+></p>
+<p>Automatically install the necessary tools。Note that this will also install Chocolatey。The script will pop-up in a new window after the installation completes。</p>
+<p>如果选中该选项，在安装NodeJS时，会自动安装一些工具，如：Python和Visual Studio的构建工具Chocolatey，安装完Chocolatey以后，会弹出PowerShell进行安装Python、Visual Studio等。</p>
+<p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image010.jpg"
+	width="586"
+	height="460"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image010_hu1862757210708829430.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image010_hu2949386948855768763.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="305px"
+	
+></p>
+<p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image012.jpg"
+	width="586"
+	height="460"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image012_hu12904148596578439997.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image012_hu4522932171112291635.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="305px"
+	
+></p>
+<p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image014.jpg"
+	width="586"
+	height="460"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image014_hu5130790522319851705.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image014_hu565557277338994615.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="127"
+		data-flex-basis="305px"
+	
+></p>
+<h4 id="112测试">1.1.2、测试
+</h4><p>打开 cmd 窗口</p>
+<p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image002-1713938022388-8.jpg"
+	width="513"
+	height="272"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image002-1713938022388-8_hu15643778942264909325.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image002-1713938022388-8_hu17839518756908748164.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="452px"
+	
+></p>
+<p>查看版本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## 查看已安装的 NodeJS 的版本</span>
+</span></span><span class="line"><span class="cl">node -v
+</span></span><span class="line"><span class="cl"><span class="c1">## 查看 NodeJS 自带的 npm （Node Package Manager：包管理工具）的版本</span>
+</span></span><span class="line"><span class="cl">npm -v
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image004-1713938022389-9.jpg"
+	width="692"
+	height="308"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image004-1713938022389-9_hu7898022596719642313.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image004-1713938022389-9_hu16933482034585404559.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="224"
+		data-flex-basis="539px"
+	
+></p>
+<h3 id="12配置nodejs">1.2、配置Node.js
+</h3><h4 id="121修改全局目录">1.2.1、修改全局目录
+</h4><p>修改npm命令全局模块安装目录和全局缓存目录。</p>
+<h4 id="1211创建目录">1.2.1.1、创建目录
+</h4><p>在nodejs的安装目录下创建 node_cache 和 node_global 两个文件夹。</p>
+<p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image002-1713938095881-12.jpg"
+	width="360"
+	height="144"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image002-1713938095881-12_hu8222984095635048607.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image002-1713938095881-12_hu1376047457728155412.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="250"
+		data-flex-basis="600px"
+	
+></p>
+<h4 id="1212修改目录权限">1.2.1.2、修改目录权限
+</h4><p>按下图修改 node_cache 和 node_global 两个文件夹的权限。</p>
+<p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image004-1713938095882-13.jpg"
+	width="382"
+	height="494"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image004-1713938095882-13_hu4938938252985393682.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image004-1713938095882-13_hu10018563076798157560.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="77"
+		data-flex-basis="185px"
+	
+></p>
+<p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image006-1713938095882-14.jpg"
+	width="383"
+	height="513"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image006-1713938095882-14_hu8825227783199289574.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image006-1713938095882-14_hu1769743824753189539.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="74"
+		data-flex-basis="179px"
+	
+></p>
+<p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image008-1713938095883-15.jpg"
+	width="692"
+	height="468"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image008-1713938095883-15_hu14680513269645816845.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image008-1713938095883-15_hu14700427364875251518.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="147"
+		data-flex-basis="354px"
+	
+></p>
+<h4 id="1213修改npm的默认目录">1.2.1.3、修改npm的默认目录
+</h4><p>修改npm命令的默认全局模块安装目录和全局缓存目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## 设置全局模块安装路径</span>
+</span></span><span class="line"><span class="cl">npm config <span class="nb">set</span> prefix <span class="s2">&#34;D:\nodejs\node_global&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 设置全局缓存存放路径</span>
+</span></span><span class="line"><span class="cl">npm config <span class="nb">set</span> cache <span class="s2">&#34;D:\nodejs\node_cache&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="1214配置环境变量">1.2.1.4、配置环境变量
+</h4><p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image010-1713938095883-16.jpg"
+	width="332"
+	height="568"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image010-1713938095883-16_hu2450209833319881734.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image010-1713938095883-16_hu4317959595053028476.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="58"
+		data-flex-basis="140px"
+	
+></p>
+<p><img src="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image012-1713938095883-17.jpg"
+	width="693"
+	height="299"
+	srcset="/p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image012-1713938095883-17_hu16780569306195146928.jpg 480w, /p/%E5%AE%9E%E8%AE%AD%E8%AE%B0%E5%BD%951/clip_image012-1713938095883-17_hu5904270232511501711.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="231"
+		data-flex-basis="556px"
+	
+></p>
+<h4 id="122配置镜像源">1.2.2、配置镜像源
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## 配置镜像源（仓库的地址）</span>
+</span></span><span class="line"><span class="cl">npm  config  <span class="nb">set</span> <span class="nv">registry</span><span class="o">=</span>https://registry.npmmirror.com/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="123安装包管理工具">1.2.3、安装包管理工具
+</h4><p>常用的包管理工具：npm、cnpm、yarn</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## 安装 cnpm</span>
+</span></span><span class="line"><span class="cl">npm  install  cnpm  -g
+</span></span><span class="line"><span class="cl"><span class="c1">## 安装 yarn</span>
+</span></span><span class="line"><span class="cl">npm  install  yarn  -g
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="13-npm--cnpm-命令">1.3 npm / cnpm 命令
+</h3><h4 id="131-查看帮助信息">1.3.1 查看帮助信息
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## 查看npm的版本号</span>
+</span></span><span class="line"><span class="cl">npm –v
+</span></span><span class="line"><span class="cl"><span class="c1">## 查看npm命令的帮助信息</span>
+</span></span><span class="line"><span class="cl">npm  -h
+</span></span><span class="line"><span class="cl">npm  --help
+</span></span><span class="line"><span class="cl"><span class="c1">## 查看npm子命令的帮助信息</span>
+</span></span><span class="line"><span class="cl">npm  子命令名  -h
+</span></span><span class="line"><span class="cl">npm  子命令名  --help
+</span></span><span class="line"><span class="cl"><span class="c1">## 显示所有命令的使用信息</span>
+</span></span><span class="line"><span class="cl">npm  -l
+</span></span><span class="line"><span class="cl"><span class="c1">## 在浏览器中打开指定命令的帮助网页</span>
+</span></span><span class="line"><span class="cl">npm  <span class="nb">help</span>  子命令名
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="err">####</span> <span class="mf">1.3</span><span class="p">.</span><span class="mi">2</span><span class="err">、</span><span class="nx">子命令</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">语法</span><span class="err">：</span><span class="nx">npm</span>  <span class="nx">子命令名</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">access</span><span class="p">,</span> <span class="nx">adduser</span><span class="p">,</span> <span class="nx">audit</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">bin</span><span class="p">,</span> <span class="nx">bugs</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">font</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&#34;blue&#34;</span><span class="o">&gt;</span><span class="nx">cache</span><span class="o">&lt;</span><span class="err">/font&gt;, ci, completion, &lt;font color=&#34;red&#34;&gt;config&lt;/font&gt;, </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">dedupe</span><span class="p">,</span> <span class="nx">deprecate</span><span class="p">,</span> <span class="nx">diff</span><span class="p">,</span> <span class="nx">dist</span><span class="o">-</span><span class="nx">tag</span><span class="p">,</span> <span class="nx">docs</span><span class="p">,</span> <span class="nx">doctor</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">edit</span><span class="p">,</span> <span class="nx">exec</span><span class="p">,</span> <span class="nx">explain</span><span class="p">,</span> <span class="nx">explore</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">find</span><span class="o">-</span><span class="nx">dupes</span><span class="p">,</span> <span class="nx">fund</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">font</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&#34;red&#34;</span><span class="o">&gt;</span><span class="nx">get</span><span class="o">&lt;</span><span class="err">/font&gt;, </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">font</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&#34;blue&#34;</span><span class="o">&gt;</span><span class="nx">help</span><span class="o">&lt;</span><span class="err">/font&gt;, hook, </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">font</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&#34;red&#34;</span><span class="o">&gt;</span><span class="nx">init</span><span class="p">,</span> <span class="nx">install</span><span class="o">&lt;</span><span class="err">/font&gt;, install-ci-test, install-test, </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">link</span><span class="p">,</span> <span class="nx">ll</span><span class="p">,</span> <span class="nx">login</span><span class="p">,</span> <span class="nx">logout</span><span class="p">,</span> <span class="nx">ls</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">org</span><span class="p">,</span> <span class="nx">outdated</span><span class="p">,</span> <span class="nx">owner</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">pack</span><span class="p">,</span> <span class="nx">ping</span><span class="p">,</span> <span class="nx">pkg</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">font</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&#34;blue&#34;</span><span class="o">&gt;</span><span class="nx">prefix</span><span class="o">&lt;</span><span class="err">/font&gt;, profile, prune, publish, </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">query</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">rebuild</span><span class="p">,</span> <span class="nx">repo</span><span class="p">,</span> <span class="nx">restart</span><span class="p">,</span> <span class="nx">root</span><span class="p">,</span> <span class="nx">run</span><span class="o">-</span><span class="nx">script</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">font</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&#34;red&#34;</span><span class="o">&gt;</span><span class="nx">search</span><span class="p">,</span> <span class="nx">set</span><span class="o">&lt;</span><span class="err">/font&gt;, set-script, shrinkwrap, star, stars, start, stop, </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">team</span><span class="p">,</span> <span class="nx">test</span><span class="p">,</span> <span class="nx">token</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">font</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&#34;red&#34;</span><span class="o">&gt;</span><span class="nx">uninstall</span><span class="o">&lt;</span><span class="err">/font&gt;, unpublish, unstar, &lt;font color=&#34;blue&#34;&gt;update&lt;/font&gt;, </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">font</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&#34;blue&#34;</span><span class="o">&gt;</span><span class="nx">version</span><span class="o">&lt;</span><span class="err">/font&gt;, view, </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">whoami</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="133配置管理">1.3.3、配置管理
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">######### npm 配置文件管理 #########</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## npm的配置文件默认在 C:\Users\用户名\.npmrc</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 查看 npm 配置文件路径</span>
+</span></span><span class="line"><span class="cl">npm config get userconfig 
+</span></span><span class="line"><span class="cl"><span class="c1">## 打开 npm 的配置文件</span>
+</span></span><span class="line"><span class="cl">npm config edit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">######### npm 配置管理 #########</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 获取所有参数的当前配置</span>
+</span></span><span class="line"><span class="cl">npm config ls 【--json】
+</span></span><span class="line"><span class="cl">npm config ll 【--json】
+</span></span><span class="line"><span class="cl">npm config la 【--json】
+</span></span><span class="line"><span class="cl">npm config list 【--json】
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 获取指定参数当前配置的值</span>
+</span></span><span class="line"><span class="cl">npm config get 【参数名【参数名 ...】
+</span></span><span class="line"><span class="cl"><span class="c1">## 设置指定参数的值</span>
+</span></span><span class="line"><span class="cl">npm config <span class="nb">set</span> <span class="nv">参数名</span><span class="o">=</span>参数值 【参数名<span class="o">=</span>参数值 ...】
+</span></span><span class="line"><span class="cl"><span class="c1">## 删除指定的参数配置</span>
+</span></span><span class="line"><span class="cl">npm config delete 参数名【参数名 ... 】
+</span></span><span class="line"><span class="cl"><span class="c1">## 设置全局模块安装路径 注意：等于号两边不能有空格</span>
+</span></span><span class="line"><span class="cl">npm config <span class="nb">set</span> <span class="nv">prefix</span><span class="o">=</span><span class="s2">&#34;全局安装路径&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 设置全局缓存存放路径</span>
+</span></span><span class="line"><span class="cl">npm config <span class="nb">set</span> <span class="nv">cache</span><span class="o">=</span><span class="s2">&#34;安装组件时使用的缓存路径&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="134镜像管理">1.3.4、镜像管理
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">######### npm 镜像管理 #########</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 查看当前使用的镜像源地址</span>
+</span></span><span class="line"><span class="cl">npm  【config】  get registry 
+</span></span><span class="line"><span class="cl"><span class="c1">## 设置镜像源地址：npm config set registry=https://registry.npmmirror.com/</span>
+</span></span><span class="line"><span class="cl">npm  【config】  <span class="nb">set</span> <span class="nv">registry</span> <span class="o">=</span> 镜像地址
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="135包管理">1.3.5、包管理
+</h4><h4 id="1351命令">1.3.5.1、命令
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">######### npm管理包 #########</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 查询仓库中的模块                           </span>
+</span></span><span class="line"><span class="cl">npm  search 模块名
+</span></span><span class="line"><span class="cl"><span class="c1">## 安装模块：install 也可以简写为 i                    </span>
+</span></span><span class="line"><span class="cl">npm  install 模块名【@版本号】 【-g <span class="p">|</span> -S <span class="p">|</span> -D】【--registry<span class="o">=</span>临时源地址】
+</span></span><span class="line"><span class="cl"><span class="c1">## 卸载模块</span>
+</span></span><span class="line"><span class="cl">npm  uninstall 模块名【@版本号】 【-g <span class="p">|</span> -S <span class="p">|</span> -D】 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#### view : 查看包相关信息</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#### 别名：info、show、v</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 查看指定包的依赖关系</span>
+</span></span><span class="line"><span class="cl">npm view 包名 dependencies
+</span></span><span class="line"><span class="cl"><span class="c1">## 查看指定包的最新版本号</span>
+</span></span><span class="line"><span class="cl">npm view 包名 version
+</span></span><span class="line"><span class="cl"><span class="c1">## 查看指定包的所有历史版本号</span>
+</span></span><span class="line"><span class="cl">npm view 包名 versions
+</span></span><span class="line"><span class="cl"><span class="c1">## 查看指定包的详细信息</span>
+</span></span><span class="line"><span class="cl">npm view 包名
+</span></span><span class="line"><span class="cl"><span class="c1">## 检查模块是否已经过时</span>
+</span></span><span class="line"><span class="cl">npm  outdated 模块名
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="13511命令参数">1.3.5.1.1、命令参数
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">##表示安装到全局目录 或 卸载全局目录下的包</span>
+</span></span><span class="line"><span class="cl">-g , --global
+</span></span><span class="line"><span class="cl"><span class="c1">## 表示安装（或卸载）的包会写入（或删除）package.json文件中的dependencies（**生产阶段的依赖**）</span>
+</span></span><span class="line"><span class="cl">-S , --save
+</span></span><span class="line"><span class="cl"><span class="c1">## 表示安装（或卸载）的包会写入（或删除）package.json文件中的devDependencies （开发阶段的依赖）</span>
+</span></span><span class="line"><span class="cl">-D , --save-dev
+</span></span><span class="line"><span class="cl"><span class="c1">## 表示安装（或卸载）的包会写入（或删除）package.json文件中optionalDependencies（可选阶段的依赖）</span>
+</span></span><span class="line"><span class="cl">-O , --save-optional
+</span></span><span class="line"><span class="cl"><span class="c1">## 安装指定版本的模块，而不是使用兼容的版本方式</span>
+</span></span><span class="line"><span class="cl">-E , --save-exact 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="13512版本号">1.3.5.1.2、版本号
+</h4><p>版本号的使用方式（假设当前最新版本号是 1.1.0 ）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">## 兼容模块新发布的补丁版本</span>
+</span></span><span class="line"><span class="cl">~1.1.0 、 1.1.x 、 1.1
+</span></span><span class="line"><span class="cl"><span class="c1">## 兼容模块新发布的小版本、补丁版本</span>
+</span></span><span class="line"><span class="cl">^1.1.0 、 1.x 、 <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 兼容模块新发布的大版本、小版本、补丁版本</span>
+</span></span><span class="line"><span class="cl">*  、 x
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="136项目管理">1.3.6、项目管理
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="err">\#########</span> <span class="nx">npm管理项目</span> <span class="err">#########</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">初始化项目</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span>  <span class="nx">init</span> <span class="err">【</span><span class="o">-</span><span class="nx">y</span><span class="err">】</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span>  <span class="nx">create</span> <span class="err">【</span><span class="o">-</span><span class="nx">y</span><span class="err">】</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">查看项目中模块所在的目录</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">root</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">查看全局安装的模块所在目录</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">root</span> <span class="err">–</span><span class="nx">g</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">查看本地已安装模块的清单列表</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">list</span> <span class="nx">或者</span> <span class="nx">npm</span> <span class="nx">ls</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">查看本地已安装的包名的详细信息</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">ls</span> <span class="nx">包名</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">list</span> <span class="nx">包名</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">查看指定包的来源地址</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">view</span> <span class="nx">包名</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">url</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">清除项目中没有被使用的包</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">prune</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">运行项目中的测试脚本</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span>  <span class="nx">test</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">运行指定的脚本</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">run</span> <span class="nx">脚本名</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">启动模块</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">start</span> <span class="nx">模块名</span> <span class="err">【</span><span class="o">--</span><span class="nx">参数</span><span class="err">】</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">该命令会在package</span><span class="p">.</span><span class="nx">json文件中scripts的start字段中</span><span class="err">，</span><span class="nx">可以自定义命令来配置一个服务器环境和安装一系列的必要程序</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">如</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;scripts&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;start&#34;</span><span class="o">:</span> <span class="s2">&#34;gulp -ws&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">此时在cmd中输入npm</span> <span class="nx">start命令相当于执行gulpfile</span><span class="p">.</span><span class="nx">js文件自定义的watch和server命令</span><span class="err">。</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">如果package</span><span class="p">.</span><span class="nx">json文件没有设置start</span><span class="err">，</span><span class="nx">则将直接启动node</span> <span class="nx">server</span><span class="p">.</span><span class="nx">js</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">停止模块</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">stop</span> <span class="nx">模块名</span> <span class="err">【</span><span class="o">--</span><span class="nx">参数</span><span class="err">】</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">重启模块</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">restart</span> <span class="nx">模块名</span> <span class="err">【</span><span class="o">--</span><span class="nx">参数</span><span class="err">】</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">测试模块</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">test</span> <span class="nx">模块名</span> <span class="err">【</span><span class="o">--</span><span class="nx">参数</span><span class="err">】</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">该命令写在package</span><span class="p">.</span><span class="nx">json文件scripts的test字段中</span><span class="err">，</span><span class="nx">可以自定义该命令来执行一些操作</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">如</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;scripts&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;test&#34;</span><span class="o">:</span> <span class="s2">&#34;gulp release&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">此时在cmd中输入npm</span> <span class="nx">test命令相当于执行gulpfile</span><span class="p">.</span><span class="nx">js文件自定义的release命令</span><span class="err">。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="其他命令">其他命令
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">清除npm的缓存</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">cache</span> <span class="nx">clean</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">会打开默认浏览器跳转到github中包名的页面</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">repo</span> <span class="nx">包名</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">会打开默认浏览器跳转到github中包名的README</span><span class="p">.</span><span class="nx">MD文件信息</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">docs</span> <span class="nx">包名</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">\##</span> <span class="nx">会打开默认浏览器跳转到github中包名的主页</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">npm</span> <span class="nx">home</span> <span class="nx">包名</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2025 高志豪的个人博客
+    </section>
+    
+    <section class="powerby">
+        
+
+            </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+</head>
+<body>
+	
+	<meting-js
+			server="netease"
+			type="playlist"
+			id="13784477821"
+			fixed="true"
+		>
+	</meting-js>
+
+	<div id="pageContent">
+		
+	</div>
+	<div id="aplayerContent">
+		
+	</div>
+
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+
+
+
+<script src=https://prts722.github.io/js/topbar.min.js></script>
+
+
+<script>
+    var pjax = new Pjax({
+        selectors: [
+            ".main-container"
+        ]
+
+    })
+
+    pjax._handleResponse = pjax.handleResponse;
+
+    pjax.handleResponse = function(responseText, request, href, options) {
+        if (request.responseText.match("<html")) {
+            
+            let newDom = new DOMParser().parseFromString(responseText, 'text/html');
+            
+            let bodyClass = newDom.body.className;
+            document.body.setAttribute("class", bodyClass)
+            pjax._handleResponse(responseText, request, href, options);
+            
+        }
+    }
+
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+
+    document.addEventListener('pjax:send', () => {
+        topbar.show();
+    })
+
+    document.addEventListener('pjax:complete', () =>{
+        window.Stack.init();
+        initCodeMoreBox();
+        initScrollTop();
+        topbar.hide();
+    })
+
+</script>
+
+
+<div id="particles-js"></div>
+<script src=https://prts722.github.io/background/particles.min.js></script>
+
+<style>
+  @font-face {
+    font-family: '马路口圆体';
+    src: url(https://prts722.github.io/font/%E9%A9%AC%E8%B7%AF%E5%8F%A3%E5%9C%86%E4%BD%93.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: '马路口圆体';
+    --code-font-family: '马路口圆体';
+  }
+
+  #TableOfContents > ul, ol {
+      ul, ol {
+          display: none;
+      }
+      .open {
+          display: block;
+      }
+  }
+
+
+   
+  #backTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      z-index: 99;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      background-image: url(https://prts722.github.io/icons/backTop.svg);
+  }
+   
+  .highlight {
+       
+      max-height: 400px;
+      overflow: hidden;
+  }
+
+  .code-show {
+      max-height: none !important;
+  }
+
+  .code-more-box {
+      width: 100%;
+      padding-top: 78px;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+  }
+
+  .code-more-btn {
+      display: block;
+      margin: auto;
+      width: 44px;
+      height: 22px;
+      background: #f0f0f5;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      padding-top: 6px;
+      cursor: pointer;
+  }
+
+  .code-more-img {
+      cursor: pointer !important;
+      display: block;
+      margin: auto;
+      width: 22px;
+      height: 16px;
+  }
+
+  #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+  }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                    ul.classList.remove("open")
+                })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+    
+
+    function initScrollTop() {
+        let rightSideBar = document.querySelector(".right-sidebar");
+        if (!rightSideBar) {
+            return;
+        }
+        
+        let btn = document.createElement("div");
+        btn.id = "backTopBtn";
+        btn.onclick = backToTop
+        rightSideBar.appendChild(btn)
+        
+        window.onscroll = function() {
+            
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+    }
+
+    
+
+    function backToTop(){
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
+    initScrollTop();
+
+    
+    function initCodeMoreBox() {
+        let codeBlocks = document.querySelectorAll(".highlight");
+        if (!codeBlocks) {
+            return;
+        }
+        codeBlocks.forEach(codeBlock => {
+            
+            if (codeBlock.scrollHeight <= codeBlock.clientHeight) {
+                return;
+            }
+            
+            
+            let codeMoreBox = document.createElement('div');
+            codeMoreBox.classList.add('code-more-box');
+            
+            let codeMoreBtn = document.createElement('span');
+            codeMoreBtn.classList.add('code-more-btn');
+            codeMoreBtn.addEventListener('click', () => {
+                codeBlock.classList.add('code-show');
+                codeMoreBox.style.display = 'none';
+                
+                window.dispatchEvent(new Event('resize'))
+            })
+            
+            let img = document.createElement('img');
+            img.classList.add('code-more-img');
+            img.src = "https://prts722.github.io/icons/codeMore.png"
+            
+            codeMoreBtn.appendChild(img);
+            codeMoreBox.appendChild(codeMoreBtn);
+            codeBlock.appendChild(codeMoreBox)
+        })
+    }
+
+    initCodeMoreBox();
+    particlesJS.load('particles-js', "https://prts722.github.io/background/particlesjs-config.json", function() {
+        console.log('particles.js loaded - callback');
+    });
+
+    const cssPath = "https://prts722.github.io/waifu/waifu.css"
+    const waifuTipsJsonPath = "https://prts722.github.io/waifu/waifu-tips.json"
+    const tipsJsonPath = "https://prts722.github.io/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+            loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            
+            initWidget({
+                waifuPath: waifuTipsJsonPath,
+                cdnPath: "https://cdn.jsdelivr.net/gh/prts722/static-resource@v1.0.0",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+            initWaifuMouseEvent();
+        });
+    }
+
+    function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+        
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+
+</script>
+    </body>
+</html>
