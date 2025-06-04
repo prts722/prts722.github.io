@@ -241,7 +241,7 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#1-列表list">1. 列表(list)</a>
+    <li><a href="#列表list">列表(list)</a>
       <ol>
         <li><a href="#11-介绍和基础用法">1.1 介绍和基础用法</a></li>
         <li><a href="#12-索引和切片">1.2 索引和切片</a></li>
@@ -249,7 +249,13 @@
         <li><a href="#14-合并两个列表">1.4 合并两个列表</a></li>
       </ol>
     </li>
-    <li><a href="#元组tuple">元组(tuple)</a></li>
+    <li><a href="#元组tuple">元组(tuple)</a>
+      <ol>
+        <li><a href="#21-基本用法">2.1 基本用法</a></li>
+        <li><a href="#23-内置函数">2.3 内置函数</a></li>
+        <li><a href="#33-元组是不可变的">3.3 “元组是不可变的”</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -340,7 +346,7 @@
 因为内容有些多所以分两篇文章，为了防止说错，部分内容引用教程</p>
 </blockquote>
 <p><em>Tips: 列表(list)和元组(tuple)是<strong>有序的</strong>，字典(dict)和集合(set)是<strong>无序的</strong></em></p>
-<h2 id="1-列表list">1. 列表(list)
+<h2 id="列表list">列表(list)
 </h2><h3 id="11-介绍和基础用法">1.1 介绍和基础用法
 </h3><p>list是一种有序的集合，可以随时添加和删除其中的元素。list可以存储任何类型的对象，整数，字符串，函数等都可以，也可以存储另一个列表。</p>
 <p>可以通过下面两种方法定义一个空列表</p>
@@ -514,8 +520,154 @@
 </span></span><span class="line"><span class="cl"><span class="err">##</span> <span class="nx">输出结果</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="元组tuple">元组(tuple)
+</div><hr>
+<h2 id="元组tuple">元组(tuple)
 </h2><p>和列表一样，元组也是有序的，元素之间也用逗号隔开，不同之处在于元组的元素不能修改。元组写在小括号 () 里。</p>
+<h3 id="21-基本用法">2.1 基本用法
+</h3><p>创建空元组（两种方法）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">tup1</span> <span class="o">=</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tup1</span> <span class="o">=</span> <span class="nx">tuple</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>元组中只包含一个元素时，需要在元素后面添加逗号 , ，否则括号会被当作运算符使用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">tup1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">type</span><span class="p">(</span><span class="nx">tup1</span><span class="p">)</span>     <span class="err">#</span> <span class="nx">不加逗号</span><span class="err">，</span><span class="nx">类型为整型</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="kr">class</span> <span class="s1">&#39;int&#39;</span><span class="o">&gt;</span>  <span class="err">#</span> <span class="nx">输出结果</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">tup1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">50</span><span class="p">,)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">type</span><span class="p">(</span><span class="nx">tup1</span><span class="p">)</span>     <span class="err">#</span> <span class="nx">加上逗号</span><span class="err">，</span><span class="nx">类型为元组</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="kr">class</span> <span class="s1">&#39;tuple&#39;</span><span class="o">&gt;</span>  <span class="err">#</span> <span class="nx">输出结果</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>元组中的元素值是不允许删除的，但我们可以使用del语句来删除整个元组，如下实例:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">tup</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Google&#39;</span><span class="p">,</span> <span class="s1">&#39;Runoob&#39;</span><span class="p">,</span> <span class="mi">1997</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="nx">print</span> <span class="p">(</span><span class="nx">tup</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">del</span> <span class="nx">tup</span>
+</span></span><span class="line"><span class="cl"><span class="nx">print</span> <span class="p">(</span><span class="s2">&#34;删除后的元组 tup : &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">print</span> <span class="p">(</span><span class="nx">tup</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面实例中的元组被删除后没输出变量会有异常信息，输出如下所示：</p>
+<blockquote>
+<p>Traceback (most recent call last):
+File &ldquo;test.py&rdquo;, line 8, in <module>
+&gt;print (tup)
+NameError: name &rsquo;tup&rsquo; is not defined</p>
+</blockquote>
+<p>2.2 索引和切片
+因为元组也是一个序列，所以我们可以访问元组中的指定位置的元素，也可以截取索引中的一段元素，即切片</p>
+<blockquote>
+<p>tup = (&lsquo;Google&rsquo;, &lsquo;Runoob&rsquo;, &lsquo;Taobao&rsquo;, &lsquo;Wiki&rsquo;, &lsquo;Weibo&rsquo;,&lsquo;Weixin&rsquo;)</p>
+</blockquote>
+<p><img src="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A02/%E5%85%83%E7%BB%84%E5%88%87%E7%89%87.png"
+	width="842"
+	height="258"
+	srcset="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A02/%E5%85%83%E7%BB%84%E5%88%87%E7%89%87_hu16534634064832297205.png 480w, /p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A02/%E5%85%83%E7%BB%84%E5%88%87%E7%89%87_hu5789709451451706113.png 1024w"
+	loading="lazy"
+	
+		alt="元组切片"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="326"
+		data-flex-basis="783px"
+	
+></p>
+<ul>
+<li>图片来源:【<a class="link" href="https://www.runoob.com/python3/python3-tuple.html"  target="_blank" rel="noopener"
+    >菜鸟教程</a>】</li>
+</ul>
+<h3 id="23-内置函数">2.3 内置函数
+</h3><p>元组包含的内置函数如下：</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>序号</th>
+          <th>方法及描述</th>
+          <th>实例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>len(tuple) 计算元组元素个数。</td>
+          <td>tuple1 = (&lsquo;Google&rsquo;, &lsquo;Runoob&rsquo;, &lsquo;Taobao&rsquo;)<br>print(len(tuple1))<br>输出结果3</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>max(tuple) 返回元组中元素最大值。</td>
+          <td>tuple2 = (&lsquo;5&rsquo;, &lsquo;4&rsquo;, &lsquo;8&rsquo;)<br>print(max(tuple2))<br>输出结果8</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>min(tuple) 返回元组中元素最小值。</td>
+          <td>tuple2 = (&lsquo;5&rsquo;, &lsquo;4&rsquo;, &lsquo;8&rsquo;)<br>print(min(tuple2))<br>输出结果4</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>tuple(iterable) 将可迭代系列转换为元组。</td>
+          <td>list1= [&lsquo;Google&rsquo;, &lsquo;Taobao&rsquo;, &lsquo;Runoob&rsquo;, &lsquo;Baidu&rsquo;]<br>tuple1=tuple(list1)<br>print(tuple1)<br>输出结果(&lsquo;Google&rsquo;, &lsquo;Taobao&rsquo;, &lsquo;Runoob&rsquo;, &lsquo;Baidu&rsquo;)</td>
+      </tr>
+  </tbody>
+</table></div>
+<h3 id="33-元组是不可变的">3.3 “元组是不可变的”
+</h3><p>所谓元组的不可变指的是元组所指向的内存中的内容不可变</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">tup</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;g&#39;</span>     <span class="err">#</span> <span class="nx">不支持修改元素</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Traceback</span> <span class="p">(</span><span class="nx">most</span> <span class="nx">recent</span> <span class="nx">call</span> <span class="nx">last</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">File</span> <span class="s2">&#34;&lt;stdin&gt;&#34;</span><span class="p">,</span> <span class="nx">line</span> <span class="mi">1</span><span class="p">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="nx">module</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">TypeError</span><span class="o">:</span> <span class="s1">&#39;tuple&#39;</span> <span class="nx">object</span> <span class="nx">does</span> <span class="nx">not</span> <span class="nx">support</span> <span class="nx">item</span> <span class="nx">assignment</span>
+</span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="nx">id</span><span class="p">(</span><span class="nx">tup</span><span class="p">))</span>     <span class="err">#</span> <span class="nx">查看内存地址</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4440687904</span>        <span class="err">#</span><span class="nx">输出结果</span>
+</span></span><span class="line"><span class="cl"><span class="nx">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="nx">id</span><span class="p">(</span><span class="nx">tup</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="mi">4441088800</span>    <span class="err">#</span> <span class="nx">内存地址不一样了</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>从以上实例可以看出，重新赋值的元组 tup，绑定到新的对象了，不是修改了原来的对象。</p>
+<hr>
 
 </section>
 
@@ -549,6 +701,30 @@
     <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A03/">
+        
+        
+            <div class="article-image">
+                <img src="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A03/%E5%B0%81%E9%9D%A2%E5%9B%BE.7f17441389e3a86c43fd49f8b49fc379_hu14733014170908299398.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Python基础学习3"
+                        
+                        data-hash="md5-fxdEE4njqGxD/Un4tJ/DeQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python基础学习3</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="has-image">
