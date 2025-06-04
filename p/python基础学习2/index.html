@@ -247,13 +247,14 @@
         <li><a href="#12-索引和切片">1.2 索引和切片</a></li>
         <li><a href="#13-改变列表内容">1.3 改变列表内容</a></li>
         <li><a href="#14-合并两个列表">1.4 合并两个列表</a></li>
+        <li><a href="#15-列表推导式">1.5 列表推导式</a></li>
       </ol>
     </li>
     <li><a href="#元组tuple">元组(tuple)</a>
       <ol>
         <li><a href="#21-基本用法">2.1 基本用法</a></li>
-        <li><a href="#23-内置函数">2.3 内置函数</a></li>
-        <li><a href="#33-元组是不可变的">3.3 “元组是不可变的”</a></li>
+        <li><a href="#22-内置函数">2.2 内置函数</a></li>
+        <li><a href="#23-元组是不可变的">2.3 “元组是不可变的”</a></li>
       </ol>
     </li>
   </ol>
@@ -520,7 +521,20 @@
 </span></span><span class="line"><span class="cl"><span class="err">##</span> <span class="nx">输出结果</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><hr>
+</div><h3 id="15-列表推导式">1.5 列表推导式
+</h3><p>根据教程介绍：列表推导式是 Python 中用于创建列表的一种简洁而优雅的方法。通过列表推导式，可以从一个或多个可迭代对象（如列表、元组、字符串、集合等）中生成一个新的列表，同时可以在生成过程中对元素进行过滤和转换。列表推导式不仅能使代码更加简洁，还能提升可读性和执行效率。<br>
+说白了就是将原本的循环判断语法简写，使代码显得更加简洁。基本语法如下：</p>
+<blockquote>
+<p>[表达式 for 元素 in 可迭代对象 if 条件]</p>
+</blockquote>
+<p>其中：</p>
+<ul>
+<li>表达式：它是你希望对每个元素进行的操作或转换。</li>
+<li>元素：表示当前循环到的元素。</li>
+<li>可迭代对象：你要遍历的对象，比如列表、元组、字符串等。</li>
+<li>条件（可选）：一个过滤条件，只有满足条件的元素才会被包含在生成的列表中。</li>
+</ul>
+<hr>
 <h2 id="元组tuple">元组(tuple)
 </h2><p>和列表一样，元组也是有序的，元素之间也用逗号隔开，不同之处在于元组的元素不能修改。元组写在小括号 () 里。</p>
 <h3 id="21-基本用法">2.1 基本用法
@@ -605,7 +619,7 @@ NameError: name &rsquo;tup&rsquo; is not defined</p>
 <li>图片来源:【<a class="link" href="https://www.runoob.com/python3/python3-tuple.html"  target="_blank" rel="noopener"
     >菜鸟教程</a>】</li>
 </ul>
-<h3 id="23-内置函数">2.3 内置函数
+<h3 id="22-内置函数">2.2 内置函数
 </h3><p>元组包含的内置函数如下：</p>
 <div class="table-wrapper"><table>
   <thead>
@@ -638,7 +652,7 @@ NameError: name &rsquo;tup&rsquo; is not defined</p>
       </tr>
   </tbody>
 </table></div>
-<h3 id="33-元组是不可变的">3.3 “元组是不可变的”
+<h3 id="23-元组是不可变的">2.3 “元组是不可变的”
 </h3><p>所谓元组的不可变指的是元组所指向的内存中的内容不可变</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -745,6 +759,30 @@ NameError: name &rsquo;tup&rsquo; is not defined</p>
 
         <div class="article-details">
             <h2 class="article-title">Python基础学习1</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%B0%81%E9%9D%A2%E5%9B%BE.55a0556ebf8e33dd6bb3c3c77095b0e2_hu17250733986343186981.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 【插曲】hugo个人博客搭建"
+                        
+                        data-hash="md5-VaBVbr&#43;OM91rs8PHcJWw4g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【插曲】hugo个人博客搭建</h2>
         </div>
     </a>
 </article>

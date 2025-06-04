@@ -7,20 +7,28 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>高志豪的个人博客</copyright>
-        <lastBuildDate>Mon, 22 Jan 2024 11:54:03 +0800</lastBuildDate><atom:link href="https://prts722.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Python</title>
-        <link>https://prts722.github.io/categories/python/</link>
-        <pubDate>Mon, 22 Jan 2024 11:54:03 +0800</pubDate>
+        <lastBuildDate>Thu, 08 Feb 2024 21:58:54 +0800</lastBuildDate><atom:link href="https://prts722.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Hugo</title>
+        <link>https://prts722.github.io/categories/hugo/</link>
+        <pubDate>Thu, 08 Feb 2024 21:58:54 +0800</pubDate>
         
-        <guid>https://prts722.github.io/categories/python/</guid>
+        <guid>https://prts722.github.io/categories/hugo/</guid>
         <description></description>
         </item>
         <item>
         <title>自学记录</title>
         <link>https://prts722.github.io/categories/%E8%87%AA%E5%AD%A6%E8%AE%B0%E5%BD%95/</link>
-        <pubDate>Mon, 22 Jan 2024 11:54:03 +0800</pubDate>
+        <pubDate>Thu, 08 Feb 2024 21:58:54 +0800</pubDate>
         
         <guid>https://prts722.github.io/categories/%E8%87%AA%E5%AD%A6%E8%AE%B0%E5%BD%95/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Python</title>
+        <link>https://prts722.github.io/categories/python/</link>
+        <pubDate>Mon, 22 Jan 2024 11:54:03 +0800</pubDate>
+        
+        <guid>https://prts722.github.io/categories/python/</guid>
         <description></description>
         </item>
         <item>
