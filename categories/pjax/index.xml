@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pjax on 高志豪的个人博客</title>
+        <link>https://prts722.github.io/categories/pjax/</link>
+        <description>Recent content in Pjax on 高志豪的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>高志豪的个人博客</copyright>
+        <lastBuildDate>Sat, 10 Feb 2024 15:52:23 +0800</lastBuildDate><atom:link href="https://prts722.github.io/categories/pjax/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>通过MetingJS&#43;aplayer&#43;Pjax引入音乐播放器并实现不中断功能</title>
+        <link>https://prts722.github.io/p/%E9%80%9A%E8%BF%87metingjs-aplayer-pjax%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/</link>
+        <pubDate>Sat, 10 Feb 2024 15:52:23 +0800</pubDate>
+        
+        <guid>https://prts722.github.io/p/%E9%80%9A%E8%BF%87metingjs-aplayer-pjax%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/</guid>
+        <description>&lt;img src="https://prts722.github.io/p/%E9%80%9A%E8%BF%87metingjs-aplayer-pjax%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E5%B0%81%E9%9D%A2%E5%9B%BE.png" alt="Featured image of post 通过MetingJS&#43;aplayer&#43;Pjax引入音乐播放器并实现不中断功能" /&gt;</description>
+        </item>
+        
+    </channel>
+</rss>

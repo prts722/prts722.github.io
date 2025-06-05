@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" 从今天开始算是正式进入爬虫学习了，前面学会了基础，又搭建了博客以后，开始在网络上找资源，终于算是找到了比较好的教程开始学习爬虫，目前已经能写出基本的简易爬虫，记录一下心得\n">
+<title>爬虫学习1</title>
+
+<link rel='canonical' href='https://prts722.github.io/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/'>
+
+<link rel="stylesheet" href="/scss/style.min.0d7d874c2df72db34bfabbc46ec06803beeab0c40c96ede04416ac83ec16d11b.css"><meta property='og:title' content="爬虫学习1">
+<meta property='og:description' content=" 从今天开始算是正式进入爬虫学习了，前面学会了基础，又搭建了博客以后，开始在网络上找资源，终于算是找到了比较好的教程开始学习爬虫，目前已经能写出基本的简易爬虫，记录一下心得\n">
+<meta property='og:url' content='https://prts722.github.io/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/'>
+<meta property='og:site_name' content='高志豪的个人博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-04-15T16:07:59&#43;08:00'/><meta property='article:modified_time' content='2024-04-15T16:07:59&#43;08:00'/><meta property='og:image' content='https://prts722.github.io/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E5%B0%81%E9%9D%A2%E5%9B%BE.png' />
+<meta name="twitter:title" content="爬虫学习1">
+<meta name="twitter:description" content=" 从今天开始算是正式进入爬虫学习了，前面学会了基础，又搭建了博客以后，开始在网络上找资源，终于算是找到了比较好的教程开始学习爬虫，目前已经能写出基本的简易爬虫，记录一下心得\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://prts722.github.io/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E5%B0%81%E9%9D%A2%E5%9B%BE.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/%E5%A4%B4%E5%83%8F_hu3470872027830784231.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">♐</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">高志豪的个人博客</a></h1>
+            <h2 class="site-description">记录自己编程学习的过程和经验</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/318825048?spm_id_from=333.1369.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/prts722'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页 | Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档 | Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索 | Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5-links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>学习链接 | Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#概念和第三方库下载">概念和第三方库下载</a>
+      <ol>
+        <li><a href="#概念">概念</a></li>
+        <li><a href="#第三方库下载">第三方库下载</a></li>
+      </ol>
+    </li>
+    <li><a href="#数据来源分析">数据来源分析</a>
+      <ol>
+        <li><a href="#元素审查">元素审查</a></li>
+        <li><a href="#检查网页结构">检查网页结构</a></li>
+        <li><a href="#编写爬虫代码">编写爬虫代码</a>
+          <ol>
+            <li><a href="#1-定义请求函数">(1) 定义请求函数</a></li>
+            <li><a href="#2-获取书名">(2) 获取书名</a></li>
+            <li><a href="#3-将结果保存到本地">(3) 将结果保存到本地</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/">
+                <img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E5%B0%81%E9%9D%A2%E5%9B%BE_hu12249109910935130835.png"
+                        srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E5%B0%81%E9%9D%A2%E5%9B%BE_hu12249109910935130835.png 800w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E5%B0%81%E9%9D%A2%E5%9B%BE_hu4830510258553884599.png 1600w"
+                        width="800" 
+                        height="269" 
+                        loading="lazy"
+                        alt="Featured image of post 爬虫学习1" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/python/" >
+                Python
+            </a>
+        
+            <a href="/categories/%E7%88%AC%E8%99%AB/" >
+                爬虫
+            </a>
+        
+            <a href="/categories/%E8%87%AA%E5%AD%A6%E8%AE%B0%E5%BD%95/" >
+                自学记录
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/">爬虫学习1</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-4-15</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>从今天开始算是正式进入爬虫学习了，前面学会了基础，又搭建了博客以后，开始在网络上找资源，终于算是找到了比较好的教程开始学习爬虫，目前已经能写出基本的简易爬虫，记录一下心得</p>
+</blockquote>
+<p>写爬虫时最好使用<strong>定义函数</strong>，将每一部分功能都分到不同的函数中封装起来，需要使用时互相调用，这样有助于后期管理，代码也会更清晰</p>
+<h2 id="概念和第三方库下载">概念和第三方库下载
+</h2><h3 id="概念">概念
+</h3><p>爬虫：简单来说就是一段自动抓取互联网信息的程序，从互联网上抓取对于我们有价值的信息。<br>
+爬虫需要的部分至少有:</p>
+<ul>
+<li>请求部分：获取网页源代码</li>
+<li>内容解析部分：通过BeautifulSoup、正则表达式等方法对自己需要的部分进行定位截取</li>
+<li>保存部分：可以通过os将爬取到的内容保存至文件夹中</li>
+</ul>
+<p>其余的个部分功能基本都是在上述三模块后面进行完善</p>
+<h3 id="第三方库下载">第三方库下载
+</h3><p>写爬虫时会使用到一些第三方库，这些第三方库不是可以直接调用的</p>
+<ul>
+<li>以Beautiful Soup安装为例：</li>
+</ul>
+<blockquote>
+<p>我们需要打开cmd，进入到 Python（Python2.7版本）安装目录中的 scripts 下，输入 dir 查看是否有 pip.exe, 如果用就可以使用 Python 自带的 pip 命令进行安装，输入以下命令进行安装即可：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">pip</span> <span class="nx">install</span> <span class="nx">beautifulsoup4</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>也可以在pycharm的终端中直接下载</strong></p>
+<ul>
+<li>测试是否安装成功：
+编写一个python文件，输入</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">bs4</span>
+</span></span><span class="line"><span class="cl"><span class="nx">print</span> <span class="nx">bs4</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果正常输出则安装成功</p>
+<hr>
+<h2 id="数据来源分析">数据来源分析
+</h2><h3 id="元素审查">元素审查
+</h3><p>打开需要爬取的网页，点击F12进入，点击审查元素按钮，然后将鼠标移动至想检查的位置，这里我看的是<a class="link" href="https://www.xbqg99.cc/"  target="_blank" rel="noopener"
+    >新笔趣阁</a><br>
+<img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E5%85%83%E7%B4%A0%E5%AE%A1%E6%9F%A5.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E5%85%83%E7%B4%A0%E5%AE%A1%E6%9F%A5_hu18126770134743045641.png 480w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E5%85%83%E7%B4%A0%E5%AE%A1%E6%9F%A5_hu6958941820702966303.png 1024w"
+	loading="lazy"
+	
+		alt="元素审查"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+<h3 id="检查网页结构">检查网页结构
+</h3><p>对于爬虫而言，检查网页结构是最为关键的一步，需要对网页进行分析，并找出信息元素的相似性。下面以小说名为例，检查每部影片的 HTML 元素结构，如下所示：
+<img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90.png"
+	width="1028"
+	height="548"
+	srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90_hu9230635606620638890.png 480w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90_hu10593963559197796395.png 1024w"
+	loading="lazy"
+	
+		alt="数据分析"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="187"
+		data-flex-basis="450px"
+	
+>
+第一本小说名代码如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"> <span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;book-meta&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">h3</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;book-title&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="nx">span</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;author&#34;</span><span class="o">&gt;</span><span class="nx">我吃西红柿</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&#34;/book/57929/&#34;</span><span class="o">&gt;</span><span class="nx">宇宙职业选手</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="err">/h3&gt;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">p</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;book-desc&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="mi">2036</span><span class="nx">年</span><span class="err">，</span><span class="nx">人类第一次登上了荧火星</span><span class="err">。</span><span class="mi">2052</span><span class="nx">年</span><span class="err">，</span><span class="nx">第一届世界武道大赛举行</span><span class="err">，</span><span class="nx">这也是全球最高格斗赛事</span><span class="err">，</span><span class="nx">全球为之狂热</span><span class="err">。</span><span class="nx">世界级顶尖选手</span><span class="s2">&#34;枪魔&#34;</span><span class="nx">许景明</span><span class="err">，</span><span class="nx">于二十六岁那年</span><span class="err">，</span><span class="p">......</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>接下来审查第二本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">div</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;book-meta&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">h3</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;book-title&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="nx">span</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;author&#34;</span><span class="o">&gt;</span><span class="nx">耳根</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&#34;/book/107762/&#34;</span><span class="o">&gt;</span><span class="nx">光阴之外</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="err">/h3&gt;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">p</span> <span class="kr">class</span><span class="o">=</span><span class="s2">&#34;book-desc&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">天地是万物众生的客舍</span><span class="err">，</span><span class="nx">光阴是古往今来的过客</span><span class="err">。</span><span class="nx">各位书友要是觉得</span><span class="err">《</span><span class="nx">光阴之外</span><span class="err">》</span><span class="nx">还不错的话请不要忘记向您QQ群和微博里的朋友推荐哦</span><span class="err">！</span><span class="nx">光阴之外最新章节地址</span><span class="err">：</span><span class="p">......</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>经过对比发现，每本小说的HTML结构相同，他们的小说名都被&lt;a&gt;标签包裹起来，如果多检查几本的话会发现依旧是这个规律，这样就能继续下一步爬取</p>
+<h3 id="编写爬虫代码">编写爬虫代码
+</h3><blockquote>
+<p>获取了上面的基本网页信息后，就可以进行代码编写了</p>
+</blockquote>
+<h4 id="1-定义请求函数">(1) 定义请求函数
+</h4><p>首先要导入requests库（需要安装），然后使用<code>requests.get</code>方法获取<br>
+<strong>为了防止一些网页有反爬，需要将请求头<code>headers</code>进行一下伪装</strong><br>
+最后定义编码格式并进行返回，完整代码如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">def</span> <span class="nx">get_response</span><span class="p">(</span><span class="nx">html_url</span><span class="p">)</span><span class="o">:</span>    <span class="err">#</span> <span class="nx">函数参数</span><span class="p">(</span><span class="nx">html_url</span><span class="p">)</span><span class="err">：</span><span class="nx">要请求的链接</span><span class="err">（</span><span class="nx">url</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">定义请求头</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;User-Agent&#39;</span><span class="o">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">获取小说源代码</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">html_data</span> <span class="o">=</span> <span class="nx">requests</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="o">=</span><span class="nx">html_url</span><span class="p">,</span> <span class="nx">headers</span><span class="o">=</span><span class="nx">headers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">定义编码格式</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">html_data</span><span class="p">.</span><span class="nx">encoding</span> <span class="o">=</span> <span class="nx">html_data</span><span class="p">.</span><span class="nx">apparent_encoding</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">返回源代码</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">html_data</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>下面进行函数调用检查结果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">request</span> <span class="o">=</span> <span class="nx">get_response</span><span class="p">(</span><span class="s2">&#34;https://www.xbqg99.cc/&#34;</span><span class="p">).</span><span class="nx">text</span>
+</span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="nx">request</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>这里如果不转换为文本格式的话，获取到的是<code>&lt;Response [200]&gt;</code><br>
+最终获取到的网页结果如下</p>
+</blockquote>
+<p><img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E7%BD%91%E9%A1%B5%E8%AF%B7%E6%B1%82.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E7%BD%91%E9%A1%B5%E8%AF%B7%E6%B1%82_hu16322300916291913711.png 480w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E7%BD%91%E9%A1%B5%E8%AF%B7%E6%B1%82_hu360280940309300776.png 1024w"
+	loading="lazy"
+	
+		alt="网页请求"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+<p>出现上述显示证明第一步爬取已经成功</p>
+<h4 id="2-获取书名">(2) 获取书名
+</h4><p>获取到网站源码以后，接下来姐可以按需要获取所需要的信息了，这里可以选择各种方式，parsrl、正则表达式、BeautifulSoup4等<br>
+根据前面获取到的信息，可以发现书名都在<dt>标签下的子级<a>标签中，每本书的a标签都对应着不同的书号，这里我选择用<em>正则表达式</em>进行匹配，首先需要导入正则表达式（re）模块，后续代码写法如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">r</span><span class="s1">&#39;&lt;dt&gt;.*?&lt;a\b[^&gt;]*&gt;(.*?)&lt;/a&gt;.*?&lt;/dt&gt;&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中</p>
+<blockquote>
+<p>&lt;dt&gt; - 匹配 &lt;dt&gt;  标签<br>
+.*? - 惰性匹配 &lt;dt&gt; 开始标签和 &lt;a&gt; 标签之间的任意内容<br>
+&lt;a\b[^&gt;]*&gt; - 匹配 &lt;a 及其可能的属性（如 href=&quot;&hellip;&quot;）<br>
+(.*?) - ​​捕获组​​：匹配 &lt;a&gt; 标签内的文本内容<br>
+.*?&lt;/dt&gt; - 惰性匹配 &lt;/a&gt; 和 &lt;/dt&gt; 之间的任意内容，并确保 &lt;/dt&gt; 闭合</p>
+</blockquote>
+<p>完整函数如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">def</span> <span class="nx">get_data</span><span class="p">(</span><span class="nx">html_url_2</span><span class="p">)</span><span class="o">:</span>   <span class="err">#</span> <span class="nx">函数参数</span><span class="p">(</span><span class="nx">html_url_2</span><span class="p">)</span><span class="err">：</span> <span class="nx">小说目录页链接</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">获取目录页源代码</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">html_data</span> <span class="o">=</span> <span class="nx">get_response</span><span class="p">(</span><span class="nx">html_url_2</span><span class="p">).</span><span class="nx">text</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">获取小说名字</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span> <span class="o">=</span> <span class="nx">re</span><span class="p">.</span><span class="nx">findall</span><span class="p">(</span><span class="nx">r</span><span class="s1">&#39;&lt;dt&gt;.*?&lt;a\b[^&gt;]*&gt;(.*?)&lt;/a&gt;.*?&lt;/dt&gt;&#39;</span><span class="p">,</span> <span class="nx">html_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">name</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>调用函数并输出结果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">book_name</span> <span class="o">=</span> <span class="nx">get_data</span><span class="p">(</span><span class="s2">&#34;https://www.xbqg99.cc/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">book_name</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">print</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E4%B9%A6%E5%90%8D%E8%8E%B7%E5%8F%96.png"
+	width="942"
+	height="472"
+	srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E4%B9%A6%E5%90%8D%E8%8E%B7%E5%8F%96_hu6054965921980414960.png 480w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E4%B9%A6%E5%90%8D%E8%8E%B7%E5%8F%96_hu16848311963950994933.png 1024w"
+	loading="lazy"
+	
+		alt="书名获取"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="199"
+		data-flex-basis="478px"
+	
+></p>
+<p>可以看到已经成功爬取到了所有书名</p>
+<h4 id="3-将结果保存到本地">(3) 将结果保存到本地
+</h4><p>获取到书名后，可以将书名存入txt并保存到文本，这里只演示最简单的保存，后续还可以用<strong>os</strong>等文件夹操作方法将书名存入自定义文件夹</p>
+<p>定义保存函数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">def</span> <span class="nx">save</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">with</span> <span class="nx">open</span><span class="p">(</span><span class="s1">&#39;书名.txt&#39;</span><span class="p">,</span> <span class="nx">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="nx">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="nx">as</span> <span class="nx">f</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">f</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>短短几行代码就可以将书名保存下来，下面调用函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">book_name</span> <span class="o">=</span> <span class="nx">get_data</span><span class="p">(</span><span class="s2">&#34;https://www.xbqg99.cc/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="nx">book_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">book_name</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">save</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="s2">&#34;\n&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最终结果如下：
+<img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E4%B9%A6%E5%90%8D%E4%BF%9D%E5%AD%98.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E4%B9%A6%E5%90%8D%E4%BF%9D%E5%AD%98_hu6487237657496617372.png 480w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E4%B9%A6%E5%90%8D%E4%BF%9D%E5%AD%98_hu4078488783707023299.png 1024w"
+	loading="lazy"
+	
+		alt="书名保存"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+<p>这样一个简单的爬虫就写好了，后续还会进行各种研究，之后打算解决各种反爬问题</p>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A03/">
+        
+        
+            <div class="article-image">
+                <img src="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A03/%E5%B0%81%E9%9D%A2%E5%9B%BE.7f17441389e3a86c43fd49f8b49fc379_hu14733014170908299398.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Python基础学习3"
+                        
+                        data-hash="md5-fxdEE4njqGxD/Un4tJ/DeQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python基础学习3</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A02/">
+        
+        
+            <div class="article-image">
+                <img src="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A02/%E5%B0%81%E9%9D%A2%E5%9B%BE.6d52b033aa0c7c3d51582752430ff428_hu16600578530541694614.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Python基础学习2"
+                        
+                        data-hash="md5-bVKwM6oMfD1RWCdSQw/0KA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python基础学习2</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A01/">
+        
+        
+            <div class="article-image">
+                <img src="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A01/%E5%B0%81%E9%9D%A2%E5%9B%BE.d492eeb7fd444cce4fdcd37b5a1db360_hu13271700067110226149.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Python基础学习1"
+                        
+                        data-hash="md5-1JLut/1ETM5P3NN7Wh2zYA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python基础学习1</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%80%9A%E8%BF%87metingjs-aplayer-pjax%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%80%9A%E8%BF%87metingjs-aplayer-pjax%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E5%B0%81%E9%9D%A2%E5%9B%BE.42a9087dac6ec2756c342629da3cdf28_hu12427469974187098340.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 通过MetingJS&#43;aplayer&#43;Pjax引入音乐播放器并实现不中断功能"
+                        
+                        data-hash="md5-QqkIfaxuwnVsNCYp2jzfKA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">通过MetingJS&#43;aplayer&#43;Pjax引入音乐播放器并实现不中断功能</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%B0%81%E9%9D%A2%E5%9B%BE.55a0556ebf8e33dd6bb3c3c77095b0e2_hu17250733986343186981.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 【插曲】hugo个人博客搭建"
+                        
+                        data-hash="md5-VaBVbr&#43;OM91rs8PHcJWw4g==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">【插曲】hugo个人博客搭建</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2025 高志豪的个人博客
+    </section>
+    
+    <section class="powerby">
+        
+
+            </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+</head>
+<body>
+	
+	<meting-js
+			server="netease"
+			type="playlist"
+			id="13784477821"
+			fixed="true"
+		>
+	</meting-js>
+
+	<div id="pageContent">
+		
+	</div>
+	<div id="aplayerContent">
+		
+	</div>
+
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+
+
+
+<script src=https://prts722.github.io/js/topbar.min.js></script>
+
+
+<script>
+    var pjax = new Pjax({
+        selectors: [
+            ".main-container"
+        ]
+
+    })
+
+    pjax._handleResponse = pjax.handleResponse;
+
+    pjax.handleResponse = function(responseText, request, href, options) {
+        if (request.responseText.match("<html")) {
+            
+            let newDom = new DOMParser().parseFromString(responseText, 'text/html');
+            
+            let bodyClass = newDom.body.className;
+            document.body.setAttribute("class", bodyClass)
+            pjax._handleResponse(responseText, request, href, options);
+            
+        }
+    }
+
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+
+    document.addEventListener('pjax:send', () => {
+        topbar.show();
+    })
+
+    document.addEventListener('pjax:complete', () =>{
+        window.Stack.init();
+        initCodeMoreBox();
+        initScrollTop();
+        topbar.hide();
+    })
+
+</script>
+
+
+<div id="particles-js"></div>
+<script src=https://prts722.github.io/background/particles.min.js></script>
+
+<style>
+  @font-face {
+    font-family: '马路口圆体';
+    src: url(https://prts722.github.io/font/%E9%A9%AC%E8%B7%AF%E5%8F%A3%E5%9C%86%E4%BD%93.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: '马路口圆体';
+    --code-font-family: '马路口圆体';
+  }
+
+  #TableOfContents > ul, ol {
+      ul, ol {
+          display: none;
+      }
+      .open {
+          display: block;
+      }
+  }
+
+
+   
+  #backTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      z-index: 99;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      background-image: url(https://prts722.github.io/icons/backTop.svg);
+  }
+   
+  .highlight {
+       
+      max-height: 400px;
+      overflow: hidden;
+  }
+
+  .code-show {
+      max-height: none !important;
+  }
+
+  .code-more-box {
+      width: 100%;
+      padding-top: 78px;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+  }
+
+  .code-more-btn {
+      display: block;
+      margin: auto;
+      width: 44px;
+      height: 22px;
+      background: #f0f0f5;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      padding-top: 6px;
+      cursor: pointer;
+  }
+
+  .code-more-img {
+      cursor: pointer !important;
+      display: block;
+      margin: auto;
+      width: 22px;
+      height: 16px;
+  }
+
+  #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+  }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                    ul.classList.remove("open")
+                })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+    
+
+    function initScrollTop() {
+        let rightSideBar = document.querySelector(".right-sidebar");
+        if (!rightSideBar) {
+            return;
+        }
+        
+        let btn = document.createElement("div");
+        btn.id = "backTopBtn";
+        btn.onclick = backToTop
+        rightSideBar.appendChild(btn)
+        
+        window.onscroll = function() {
+            
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+    }
+
+    
+
+    function backToTop(){
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
+    initScrollTop();
+
+    
+    function initCodeMoreBox() {
+        let codeBlocks = document.querySelectorAll(".highlight");
+        if (!codeBlocks) {
+            return;
+        }
+        codeBlocks.forEach(codeBlock => {
+            
+            if (codeBlock.scrollHeight <= codeBlock.clientHeight) {
+                return;
+            }
+            
+            
+            let codeMoreBox = document.createElement('div');
+            codeMoreBox.classList.add('code-more-box');
+            
+            let codeMoreBtn = document.createElement('span');
+            codeMoreBtn.classList.add('code-more-btn');
+            codeMoreBtn.addEventListener('click', () => {
+                codeBlock.classList.add('code-show');
+                codeMoreBox.style.display = 'none';
+                
+                window.dispatchEvent(new Event('resize'))
+            })
+            
+            let img = document.createElement('img');
+            img.classList.add('code-more-img');
+            img.src = "https://prts722.github.io/icons/codeMore.png"
+            
+            codeMoreBtn.appendChild(img);
+            codeMoreBox.appendChild(codeMoreBtn);
+            codeBlock.appendChild(codeMoreBox)
+        })
+    }
+
+    initCodeMoreBox();
+    particlesJS.load('particles-js', "https://prts722.github.io/background/particlesjs-config.json", function() {
+        console.log('particles.js loaded - callback');
+    });
+
+    const cssPath = "https://prts722.github.io/waifu/waifu.css"
+    const waifuTipsJsonPath = "https://prts722.github.io/waifu/waifu-tips.json"
+    const tipsJsonPath = "https://prts722.github.io/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+            loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            
+            initWidget({
+                waifuPath: waifuTipsJsonPath,
+                cdnPath: "https://cdn.jsdelivr.net/gh/prts722/static-resource@v1.0.0",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+            initWaifuMouseEvent();
+        });
+    }
+
+    function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+        
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+
+</script>
+    </body>
+</html>

@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/'>
 
-<link rel="stylesheet" href="/scss/style.min.48aa70d48d1b3326899580cce45d31f99379cc9f2609ac812a6bd9cca061f309.css"><meta property='og:title' content="【插曲】hugo个人博客搭建">
+<link rel="stylesheet" href="/scss/style.min.0d7d874c2df72db34bfabbc46ec06803beeab0c40c96ede04416ac83ec16d11b.css"><meta property='og:title' content="【插曲】hugo个人博客搭建">
 <meta property='og:description' content="简单记录一下心得">
 <meta property='og:url' content='https://prts722.github.io/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/'>
 <meta property='og:site_name' content='高志豪的个人博客'>
@@ -246,7 +246,13 @@
       <ol>
         <li><a href="#21-创建博客并配置主题">2.1 创建博客并配置主题</a></li>
         <li><a href="#22-主题配置">2.2 主题配置</a></li>
-        <li><a href="#23-主题配置修改">2.3 主题配置修改</a></li>
+        <li><a href="#23-主题配置修改">2.3 主题配置修改</a>
+          <ol>
+            <li><a href="#1-语言修改">(1) 语言修改</a></li>
+            <li><a href="#2-字体修改">(2) 字体修改</a></li>
+            <li><a href="#3-时钟组件引入">(3) 时钟组件引入</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -425,10 +431,8 @@
 <p>不同主题配置文件各有不同，这里我根据自己的主题修改经验，仅记录几个心得和修改方式</p>
 </blockquote>
 <p><strong>修改前注意，尽量将配置文件写在主文件目录下，hugo是覆盖式，在主文件夹下进行的修改会覆盖主题的配置，这样做方便管理主题</strong></p>
-<ul>
-<li>(1) 语言修改
-在主文件夹下的<code>hugo.yaml</code>中可以看到各个样式的配置代码，stack主题默认是英文配置，可以在<code>DefaultContentLanguage</code>中将<code>en</code>改为<code>zh-cn</code>,这样语言就默认为中文主题了(这里我直接偷懒用现在的界面图了)</li>
-</ul>
+<h4 id="1-语言修改">(1) 语言修改
+</h4><p>在主文件夹下的<code>hugo.yaml</code>中可以看到各个样式的配置代码，stack主题默认是英文配置，可以在<code>DefaultContentLanguage</code>中将<code>en</code>改为<code>zh-cn</code>,这样语言就默认为中文主题了(这里我直接偷懒用现在的界面图了)</p>
 <p><img src="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E8%AF%AD%E8%A8%80%E9%85%8D%E7%BD%AE.png"
 	width="701"
 	height="187"
@@ -457,10 +461,8 @@
 		data-flex-basis="451px"
 	
 ></p>
-<ul>
-<li>(2) 字体修改<br>
-在hugo中，作者专门留了<code>assets</code>文件夹用来存放自定义配置文件，下面仅记录字体修改（反正未来没准也能用到其他的）</li>
-</ul>
+<h4 id="2-字体修改">(2) 字体修改
+</h4><p>在hugo中，作者专门留了<code>assets</code>文件夹用来存放自定义配置文件，下面仅记录字体修改（反正未来没准也能用到其他的）</p>
 <p>前往<a class="link" href="https://www.100font.com/"  target="_blank" rel="noopener"
     >100font</a>,下载自己想要的字体，将字体文件放入<code>assets/font</code>下（文件夹自己创建）</p>
 <p><img src="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6%E5%A4%B9.png"
@@ -511,6 +513,77 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这样文字就修改好了</p>
+<h4 id="3-时钟组件引入">(3) 时钟组件引入
+</h4><blockquote>
+<p>组件来源 ：<a class="link" href="https://github.com/letere-gzj/pure-css3-clock"  target="_blank" rel="noopener"
+    >莱特雷大佬</a></p>
+</blockquote>
+<p>在<code>layouts/partials/widget</code>文件夹下创建<code>clock.html</code>文件（文件夹不存在就自己创建）
+将组件中的html、css、script文件放入下面的模板中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!--</span><span class="nx">html内容</span><span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// script内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">style</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* css样式 */</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/style&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>html内容位置: <code>pure-css3-clock/index.html</code></li>
+<li>script内容位置: <code>pure-css3-clock/index.html</code></li>
+<li>css样式位置: <code>pure-css3-clock/css/style.css</code></li>
+</ul>
+<p>修改hugo.yaml文件，在<code>params.widgets</code>中添加clock</p>
+<p><img src="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%97%B6%E9%92%9F%E7%BB%84%E4%BB%B6.png"
+	width="645"
+	height="177"
+	srcset="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%97%B6%E9%92%9F%E7%BB%84%E4%BB%B6_hu6766938985460669935.png 480w, /p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E6%97%B6%E9%92%9F%E7%BB%84%E4%BB%B6_hu11874416042343461617.png 1024w"
+	loading="lazy"
+	
+		alt="时钟组件"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="364"
+		data-flex-basis="874px"
+	
+></p>
+<p>最后对样式进行修正优化后，组件就引入成功了</p>
+<p><img src="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%BC%95%E5%85%A5%E6%88%90%E5%8A%9F.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%BC%95%E5%85%A5%E6%88%90%E5%8A%9F_hu10354892782538543095.png 480w, /p/%E6%8F%92%E6%9B%B2hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%BC%95%E5%85%A5%E6%88%90%E5%8A%9F_hu10492860336542530150.png 1024w"
+	loading="lazy"
+	
+		alt="引入成功"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+<hr>
 
 </section>
 
@@ -544,6 +617,54 @@
     <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E5%B0%81%E9%9D%A2%E5%9B%BE.67f402ba65b6515a6ca1ab279df94ae8_hu14029246411607431912.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 爬虫学习1"
+                        
+                        data-hash="md5-Z/QCumW2UVpsoasnnflK6A==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">爬虫学习1</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%80%9A%E8%BF%87metingjs-aplayer-pjax%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%80%9A%E8%BF%87metingjs-aplayer-pjax%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E5%B0%81%E9%9D%A2%E5%9B%BE.42a9087dac6ec2756c342629da3cdf28_hu12427469974187098340.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 通过MetingJS&#43;aplayer&#43;Pjax引入音乐播放器并实现不中断功能"
+                        
+                        data-hash="md5-QqkIfaxuwnVsNCYp2jzfKA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">通过MetingJS&#43;aplayer&#43;Pjax引入音乐播放器并实现不中断功能</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="has-image">
