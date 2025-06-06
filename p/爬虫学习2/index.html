@@ -241,11 +241,8 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li>
-      <ol>
-        <li><a href="#问题详情">问题详情</a></li>
-      </ol>
-    </li>
+    <li><a href="#问题详情">问题详情</a></li>
+    <li><a href="#问题解决">问题解决</a></li>
   </ol>
 </nav>
         </div>
@@ -339,8 +336,185 @@
 <p>在研究了爬虫研究了几天并添加了一些功能够后，我决定增加一个搜索功能，但就在我以为可以按照正常爬取逻辑写代码时，我在搜索结果页面所获取到的却只是一个普通的为加载出来的html页面代码，经过搜索后发现是遇到了动态渲染无法加载的结果，之后在京东购物页面获取商品图时也发现了同样的问题，几经波折后终于是解决了，下面以<a class="link" href="https://www.jd.com"  target="_blank" rel="noopener"
     ><strong>京东购物</strong></a>为例进行一个经验分享</p>
 </blockquote>
-<h3 id="问题详情">问题详情
-</h3><p>当我们正常按照流程去进行爬取，获取到的源代码如下图所示：</p>
+<h2 id="问题详情">问题详情
+</h2><p>当我们正常按照流程去进行爬取，获取到的源代码如下图所示：
+<img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E4%BA%AC%E4%B8%9C%E7%88%AC%E5%8F%96.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E4%BA%AC%E4%B8%9C%E7%88%AC%E5%8F%96_hu14789649033922661166.png 480w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E4%BA%AC%E4%B8%9C%E7%88%AC%E5%8F%96_hu12583977618768892633.png 1024w"
+	loading="lazy"
+	
+		alt="京东爬取"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+<p>京东网站下代码如下：
+<img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E4%BA%AC%E4%B8%9C%E9%A1%B5%E9%9D%A2%E6%BA%90%E7%A0%81.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E4%BA%AC%E4%B8%9C%E9%A1%B5%E9%9D%A2%E6%BA%90%E7%A0%81_hu7840314087457654751.png 480w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E4%BA%AC%E4%B8%9C%E9%A1%B5%E9%9D%A2%E6%BA%90%E7%A0%81_hu9482920898332632664.png 1024w"
+	loading="lazy"
+	
+		alt="京东页面源码"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+<p>对比后可以发现，我们爬取下来的html代码和网站的不一样，并且我们所需要的商品图链接也没有<br>
+由此可以判定，因为动态渲染导致我们无法获取到需要的信息</p>
+<hr>
+<h2 id="问题解决">问题解决
+</h2><blockquote>
+<p>研究了很久以后，发现要想解决问题很简单&hellip;..</p>
+</blockquote>
+<ul>
+<li>
+<ol>
+<li>按F12打开任务管理器，点击<code>网络</code>,清空内容后刷新页面，让资源重新加载
+<img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A41.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A41_hu8995026605463771756.png 480w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A41_hu16381830983139847683.png 1024w"
+	loading="lazy"
+	
+		alt="解决步骤1"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></li>
+</ol>
+</li>
+<li>
+<p>2.随便审查一张封面图，查看他的链接，在其中截取一部分有代表性的片段
+<img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A42.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A42_hu14741837301032666033.png 480w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A42_hu2599734221966151553.png 1024w"
+	loading="lazy"
+	
+		alt="解决步骤2"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+</li>
+<li>
+<p>3.在网络中查找刚才截取的片段找到响应商品图的文件夹
+<img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A43.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A43_hu5781132402730705600.png 480w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A43_hu8899019168632521333.png 1024w"
+	loading="lazy"
+	
+		alt="解决步骤3"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+</li>
+<li>
+<p>4.查看标头获取<strong>请求url</strong>和<strong>请求标头</strong>
+<img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A44.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A44_hu6450800514488168959.png 480w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A44_hu6788997506930880615.png 1024w"
+	loading="lazy"
+	
+		alt="解决步骤4"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+</li>
+</ul>
+<p>+5. 将请求url和请求标头分别替换掉代码中的<strong>url</strong>和<strong>headers</strong>（请求标头中开头带冒号的几个删除掉否则会报错）
+<img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A45.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A45_hu15601288150141111154.png 480w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A45_hu16659209740824500165.png 1024w"
+	loading="lazy"
+	
+		alt="解决步骤5"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+<p>运行后可以发现已经可以获取到需要的结果了，接下来再修改一下审查逻辑并截取拼接后就可以获取到所有的商品图链接，代码如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">url</span> <span class="o">=</span> <span class="s2">&#34;请求url&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;请求标头&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">get_request</span> <span class="o">=</span> <span class="nx">requests</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="o">=</span><span class="nx">url</span><span class="p">,</span><span class="nx">headers</span><span class="o">=</span><span class="nx">headers</span><span class="p">).</span><span class="nx">content</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="s2">&#34;utf-8&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pdf_href</span> <span class="o">=</span> <span class="nx">re</span><span class="p">.</span><span class="nx">findall</span><span class="p">(</span><span class="s1">&#39;&#34;img&#34;:&#34;(.*?)&#34;&#39;</span><span class="p">,</span> <span class="nx">get_request</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">pdf_href</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s2">&#34;babel&#34;</span> <span class="k">in</span> <span class="nx">i</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">pass</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">new_href</span> <span class="o">=</span> <span class="s2">&#34;https://img14.360buyimg.com/jdcms/s480x480_&#34;</span> <span class="o">+</span> <span class="nx">str</span><span class="p">(</span><span class="nx">i</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&#34;\\&#34;</span><span class="p">,</span><span class="s2">&#34;/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">print</span><span class="p">(</span><span class="nx">new_href</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果如下：
+<img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png"
+	width="1920"
+	height="1020"
+	srcset="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C_hu11188537911238569543.png 480w, /p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C_hu12117697986471319737.png 1024w"
+	loading="lazy"
+	
+		alt="运行结果"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></p>
+<p>就这样，通过修改两个地方便解决了动态渲染无法获取信息的问题，当然也可以使用<code>Selenium</code>等方法自动化模拟运行浏览器，这里就不多赘述了</p>
+<hr>
 
 </section>
 
