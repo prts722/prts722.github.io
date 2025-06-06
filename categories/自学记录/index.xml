@@ -7,7 +7,21 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>高志豪的个人博客</copyright>
-        <lastBuildDate>Mon, 15 Apr 2024 16:07:59 +0800</lastBuildDate><atom:link href="https://prts722.github.io/categories/%E8%87%AA%E5%AD%A6%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 25 Apr 2024 23:08:49 +0800</lastBuildDate><atom:link href="https://prts722.github.io/categories/%E8%87%AA%E5%AD%A6%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>爬虫学习2</title>
+        <link>https://prts722.github.io/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/</link>
+        <pubDate>Thu, 25 Apr 2024 23:08:49 +0800</pubDate>
+        
+        <guid>https://prts722.github.io/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/</guid>
+        <description>&lt;img src="https://prts722.github.io/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E5%B0%81%E9%9D%A2%E5%9B%BE.png" alt="Featured image of post 爬虫学习2" /&gt;&lt;blockquote&gt;
+&lt;p&gt;在研究了爬虫研究了几天并添加了一些功能够后，我决定增加一个搜索功能，但就在我以为可以按照正常爬取逻辑写代码时，我在搜索结果页面所获取到的却只是一个普通的为加载出来的html页面代码，经过搜索后发现是遇到了动态渲染无法加载的结果，之后在京东购物页面获取商品图时也发现了同样的问题，几经波折后终于是解决了，下面以&lt;a class=&#34;link&#34; href=&#34;https://www.jd.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;&lt;strong&gt;京东购物&lt;/strong&gt;&lt;/a&gt;为例进行一个经验分享&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;问题详情&#34;&gt;问题详情
+&lt;/h3&gt;&lt;p&gt;当我们正常按照流程去进行爬取，获取到的源代码如下图所示：&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>爬虫学习1</title>
         <link>https://prts722.github.io/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/</link>
         <pubDate>Mon, 15 Apr 2024 16:07:59 +0800</pubDate>
