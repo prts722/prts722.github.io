@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="小说搜索下载的实现">
+<title>Python爬虫脚本项目展示</title>
+
+<link rel='canonical' href='https://prts722.github.io/p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/'>
+
+<link rel="stylesheet" href="/scss/style.min.0d7d874c2df72db34bfabbc46ec06803beeab0c40c96ede04416ac83ec16d11b.css"><meta property='og:title' content="Python爬虫脚本项目展示">
+<meta property='og:description' content="小说搜索下载的实现">
+<meta property='og:url' content='https://prts722.github.io/p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/'>
+<meta property='og:site_name' content='高志豪的个人博客'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-05-05T01:22:09&#43;08:00'/><meta property='article:modified_time' content='2024-05-05T01:22:09&#43;08:00'/><meta property='og:image' content='https://prts722.github.io/p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/%E5%B0%81%E9%9D%A2%E5%9B%BE.png' />
+<meta name="twitter:title" content="Python爬虫脚本项目展示">
+<meta name="twitter:description" content="小说搜索下载的实现"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://prts722.github.io/p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/%E5%B0%81%E9%9D%A2%E5%9B%BE.png' />
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/%E5%A4%B4%E5%83%8F_hu3470872027830784231.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">♐</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">高志豪的个人博客</a></h1>
+            <h2 class="site-description">记录自己编程学习的过程和经验</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/318825048?spm_id_from=333.1369.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/prts722'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页 | Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档 | Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索 | Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5-links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>学习链接 | Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#小说爬虫展示">小说爬虫展示</a>
+      <ol>
+        <li><a href="#获取页面请求">获取页面请求</a></li>
+        <li><a href="#获取小说各章节链接函数">获取小说各章节链接函数</a></li>
+        <li><a href="#获取各章节标题和小说内容函数">获取各章节标题和小说内容函数</a></li>
+        <li><a href="#定义搜索函数">定义搜索函数</a></li>
+        <li><a href="#定义保存函数">定义保存函数</a></li>
+        <li><a href="#所有功能的整合及使用">所有功能的整合及使用</a></li>
+        <li><a href="#最终成果">最终成果</a></li>
+      </ol>
+    </li>
+    <li><a href="#其他展示">其他展示</a>
+      <ol>
+        <li><a href="#爬取豆瓣前250电影名">爬取豆瓣前250电影名</a></li>
+        <li><a href="#爬取某电影网站的电影简介">爬取某电影网站的电影简介</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/">
+                <img src="/p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/%E5%B0%81%E9%9D%A2%E5%9B%BE_hu10777255978434958250.png"
+                        srcset="/p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/%E5%B0%81%E9%9D%A2%E5%9B%BE_hu10777255978434958250.png 800w, /p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/%E5%B0%81%E9%9D%A2%E5%9B%BE_hu3852044265125058109.png 1600w"
+                        width="800" 
+                        height="278" 
+                        loading="lazy"
+                        alt="Featured image of post Python爬虫脚本项目展示" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/python/" >
+                Python
+            </a>
+        
+            <a href="/categories/%E7%88%AC%E8%99%AB/" >
+                爬虫
+            </a>
+        
+            <a href="/categories/%E8%87%AA%E5%AD%A6%E8%AE%B0%E5%BD%95/" >
+                自学记录
+            </a>
+        
+            <a href="/categories/%E6%88%90%E6%9E%9C%E5%B1%95%E7%A4%BA/" >
+                成果展示
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/">Python爬虫脚本项目展示</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            小说搜索下载的实现
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2024-5-5</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <blockquote>
+<p>在经过爬虫的初学习，反爬问题的出现以及最终的问题解决后，经过最后的整合，终于是写好了一个较为完整的爬虫脚本，可以搜索小说并选择对应的书籍进行下载，最终结果如下：</p>
+</blockquote>
+<p><img src="/p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/%E5%B0%8F%E8%AF%B4%E7%88%AC%E5%8F%96%E4%B8%AD.gif"
+	width="1353"
+	height="766"
+	srcset="/p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/%E5%B0%8F%E8%AF%B4%E7%88%AC%E5%8F%96%E4%B8%AD_hu8291831534468789861.gif 480w, /p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/%E5%B0%8F%E8%AF%B4%E7%88%AC%E5%8F%96%E4%B8%AD_hu18085695864712074273.gif 1024w"
+	loading="lazy"
+	
+		alt="小说爬取中"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="176"
+		data-flex-basis="423px"
+	
+></p>
+<p>【图中所爬取的网站为<a class="link" href="https://www.c336.icu/"  target="_blank" rel="noopener"
+    >笔趣阁</a>】</p>
+<h2 id="小说爬虫展示">小说爬虫展示
+</h2><p>下面是代码的各部分功能</p>
+<h3 id="获取页面请求">获取页面请求
+</h3><p>在定义第一个函数前需要导入方法所需要的库，这里我偷懒直接把整个代码所有的库都写进去了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">re</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">os</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">json</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">time</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">requests</span>
+</span></span><span class="line"><span class="cl"><span class="nx">from</span> <span class="nx">urllib</span><span class="p">.</span><span class="nx">parse</span> <span class="kr">import</span> <span class="nx">quote</span>
+</span></span><span class="line"><span class="cl"><span class="nx">from</span> <span class="nx">requests</span><span class="p">.</span><span class="nx">utils</span> <span class="kr">import</span> <span class="nx">dict_from_cookiejar</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>接下来就是定义第一个获取页面源代码的函数了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">定义获取源代码函数</span>
+</span></span><span class="line"><span class="cl"><span class="nx">def</span> <span class="nx">get_response</span><span class="p">(</span><span class="nx">html_url</span><span class="p">)</span><span class="o">:</span>    <span class="err">#</span> <span class="nx">函数参数</span><span class="p">(</span><span class="nx">html_url</span><span class="p">)</span><span class="err">：</span><span class="nx">要请求的链接</span><span class="err">（</span><span class="nx">url</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">定义请求头</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;User-Agent&#39;</span><span class="o">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">获取小说源代码</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">html_data</span> <span class="o">=</span> <span class="nx">requests</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="o">=</span><span class="nx">html_url</span><span class="p">,</span> <span class="nx">headers</span><span class="o">=</span><span class="nx">headers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">定义编码格式</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">html_data</span><span class="p">.</span><span class="nx">encoding</span> <span class="o">=</span> <span class="nx">html_data</span><span class="p">.</span><span class="nx">apparent_encoding</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">返回源代码</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">html_data</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过上面代码的调用可以获得一个<code>response=200</code>的返回值，表示已经爬取成功，通过<code>.text</code>方法就可以查看页面源代码</p>
+<h3 id="获取小说各章节链接函数">获取小说各章节链接函数
+</h3><p>通过对某一本小说进行页面审查可以获取到该小说每一章节的链接，审查方式之前已经说过这里不再赘述</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">定义获取各章节链接的函数</span>
+</span></span><span class="line"><span class="cl"><span class="nx">def</span> <span class="nx">get_data</span><span class="p">(</span><span class="nx">html_url_2</span><span class="p">)</span><span class="o">:</span>   <span class="err">#</span> <span class="nx">函数参数</span><span class="p">(</span><span class="nx">html_url_2</span><span class="p">)</span><span class="err">：</span> <span class="nx">小说目录页链接</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">获取目录页源代码</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">html_data</span> <span class="o">=</span> <span class="nx">get_response</span><span class="p">(</span><span class="nx">html_url_2</span><span class="p">).</span><span class="nx">text</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">提取小说各章节链接</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">html</span> <span class="o">=</span> <span class="nx">re</span><span class="p">.</span><span class="nx">findall</span><span class="p">(</span><span class="s1">&#39;&lt;dd&gt;&lt;a href =&#34;(.*?)&#34;&gt;&#39;</span><span class="p">,</span> <span class="nx">html_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">返回小说名字和章节链接</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">html</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="获取各章节标题和小说内容函数">获取各章节标题和小说内容函数
+</h3><p>和上面获取各章节链接的方法一样，通过页面审查，正则表达式的方法就可以获取到各章节标题和文本内容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">def</span> <span class="nx">content</span><span class="p">(</span><span class="nx">html_url_3</span><span class="p">)</span><span class="o">:</span>    <span class="err">#</span> <span class="nx">参数</span><span class="err">：</span><span class="nx">小说章节链接</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">get</span> <span class="o">=</span> <span class="nx">get_response</span><span class="p">(</span><span class="nx">html_url_3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">parsel</span><span class="p">.</span><span class="nx">Selector</span><span class="p">(</span><span class="nx">get</span><span class="p">.</span><span class="nx">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">print</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">修改编码格式</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">get</span><span class="p">.</span><span class="nx">encoding</span> <span class="o">=</span> <span class="s2">&#34;utf-8&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">提取标题和内容</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span> <span class="o">=</span> <span class="nx">re</span><span class="p">.</span><span class="nx">findall</span><span class="p">(</span><span class="s1">&#39;&lt;span class=&#34;title&#34;&gt;(.*?)&lt;/span&gt;&#39;</span><span class="p">,</span> <span class="nx">get</span><span class="p">.</span><span class="nx">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">result_2</span> <span class="o">=</span> <span class="nx">re</span><span class="p">.</span><span class="nx">findall</span><span class="p">(</span><span class="s1">&#39;&lt;div id=&#34;chaptercontent&#34; class=&#34;Readarea ReadAjax_content&#34;&gt;(.*)&lt;br /&gt;&#39;</span><span class="p">,</span> <span class="nx">get</span><span class="p">.</span><span class="nx">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">print</span><span class="p">(</span><span class="nx">title</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">print</span><span class="p">(</span><span class="nx">result_2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">title</span><span class="p">,</span><span class="nx">result_2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="定义搜索函数">定义搜索函数
+</h3><p>这是整个爬虫中唯一不好弄的一部分，该网站的查询界面通过动态渲染的方式加载，导致无法获取到我们所需要的信息，解决方法之前已经说过，这里直接展示代码（过长的部分通过描述代替）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">def</span> <span class="nx">search</span><span class="p">(</span><span class="nx">word</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s_url</span> <span class="o">=</span> <span class="nx">f</span><span class="s1">&#39;https://www.c336.icu/user/search.html?q={word}&amp;so=undefined&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s_headers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="err">“</span><span class="nx">请求标头</span><span class="err">”</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">s_html</span> <span class="o">=</span> <span class="nx">requests</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="o">=</span><span class="nx">s_url</span><span class="p">,</span><span class="nx">headers</span><span class="o">=</span><span class="nx">s_headers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cookie</span> <span class="o">=</span> <span class="nx">s_html</span><span class="p">.</span><span class="nx">cookies</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s_cookie</span> <span class="o">=</span> <span class="nx">dict_from_cookiejar</span><span class="p">(</span><span class="nx">cookie</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">s_html_2</span> <span class="o">=</span> <span class="nx">requests</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="o">=</span><span class="nx">s_url</span><span class="p">,</span> <span class="nx">cookies</span><span class="o">=</span><span class="nx">s_cookie</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">get_json</span> <span class="o">=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">loads</span><span class="p">(</span><span class="nx">s_html_2</span><span class="p">.</span><span class="nx">content</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">book_name_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">book_url_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">get_json</span> <span class="o">==</span> <span class="mi">1</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">print</span><span class="p">(</span><span class="s2">&#34;\r没有该小说或请稍后再试&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">book_url</span> <span class="o">=</span> <span class="nx">re</span><span class="p">.</span><span class="nx">findall</span><span class="p">(</span><span class="s1">&#39;&#34;url_list&#34;:&#34;(.*?)&#34;,&#39;</span><span class="p">,</span> <span class="nx">s_html_2</span><span class="p">.</span><span class="nx">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">book_name</span> <span class="o">=</span> <span class="nx">re</span><span class="p">.</span><span class="nx">findall</span><span class="p">(</span><span class="s1">&#39;&#34;articlename&#34;:&#34;(.*?)&#34;,&#39;</span><span class="p">,</span> <span class="nx">s_html_2</span><span class="p">.</span><span class="nx">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="err">#</span> <span class="nx">print</span><span class="p">(</span><span class="nx">book_url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="err">#</span> <span class="nx">print</span><span class="p">(</span><span class="nx">book_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="nx">new_url</span> <span class="k">in</span> <span class="nx">book_url</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">book_url_list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">str</span><span class="p">(</span><span class="nx">new_url</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&#34;\\&#34;</span><span class="p">,</span><span class="s2">&#34;&#34;</span> <span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="nx">new_book_name</span> <span class="k">in</span> <span class="nx">book_name</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">book_name_list</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="nx">repr</span><span class="p">(</span><span class="nx">new_book_name</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;\\\\&#39;</span><span class="p">,</span> <span class="s1">&#39;\\&#39;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">except</span><span class="p">()</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">print</span><span class="p">(</span><span class="s2">&#34;请稍后再试&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">book_dict</span> <span class="o">=</span> <span class="nx">dict</span><span class="p">(</span><span class="nx">zip</span><span class="p">(</span><span class="nx">book_name_list</span><span class="p">,</span> <span class="nx">book_url_list</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">book_dict</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上述方法能完美解决动态渲染问题，同时加入了报错解决以及查询不到小说的处理</p>
+<h3 id="定义保存函数">定义保存函数
+</h3><p>通过使用<code>os</code>以及<code>with open</code>的写入方法，可以将获取到的小说放入以小说名命名的文件夹当中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">def</span> <span class="nx">save</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">title</span><span class="p">,</span> <span class="nx">result</span><span class="p">)</span><span class="o">:</span>   <span class="err">#</span> <span class="nx">三个参数含义</span><span class="err">：</span><span class="nx">小说名</span><span class="err">，</span><span class="nx">章节名</span><span class="err">，</span><span class="nx">内容</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">判断是否有小说文件夹</span><span class="err">，</span><span class="nx">如果没有则自动创建</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">file</span> <span class="o">=</span> <span class="s1">&#39;{}\\&#39;</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">not</span> <span class="nx">os</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">exists</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">os</span><span class="p">.</span><span class="nx">mkdir</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">保存小说内容至文件夹</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">with</span> <span class="nx">open</span><span class="p">(</span><span class="nx">file</span> <span class="o">+</span> <span class="nx">title</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span><span class="p">,</span> <span class="nx">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="nx">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="nx">as</span> <span class="nx">f</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">f</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">title</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">f</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">f</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">f</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="所有功能的整合及使用">所有功能的整合及使用
+</h3><p>这里我偷懒没有定义main函数，而是直接将各部分按逻辑连接并实现的功能，并且加入了延时功能防止爬取太快被网站禁止访问</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">搜索小说</span>
+</span></span><span class="line"><span class="cl"><span class="nx">x</span> <span class="o">=</span> <span class="nx">str</span><span class="p">(</span><span class="nx">input</span><span class="p">(</span><span class="s2">&#34;请输入小说：&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nx">n</span> <span class="o">=</span> <span class="nx">quote</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">encoding</span><span class="o">=</span><span class="s2">&#34;utf-8&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">request_dict</span> <span class="o">=</span> <span class="nx">search</span><span class="p">(</span><span class="nx">str</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&#34;,&#34;</span><span class="p">,</span><span class="s2">&#34;\n&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;您搜索到的小说结果如下&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">选择小说</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">name</span> <span class="k">in</span> <span class="nx">request_dict</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">print</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">choose_book</span> <span class="o">=</span> <span class="nx">input</span><span class="p">(</span><span class="s2">&#34;请选择要下载的小说：\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">choose_book</span> <span class="k">in</span> <span class="nx">request_dict</span><span class="p">.</span><span class="nx">keys</span><span class="p">()</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">num</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">获得对应书籍链接</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">book_href</span> <span class="o">=</span> <span class="s2">&#34;https://www.c336.icu&#34;</span> <span class="o">+</span> <span class="nx">request_dict</span><span class="p">[</span><span class="nx">choose_book</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">爬取目录页</span><span class="err">，</span><span class="nx">获取各章节链接</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">book_text_href</span> <span class="o">=</span> <span class="nx">get_data</span><span class="p">(</span><span class="nx">book_href</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">通过for循环对每一个章节链接进行爬取并保存</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">text_href</span> <span class="k">in</span> <span class="nx">book_text_href</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">new_href</span> <span class="o">=</span> <span class="s2">&#34;https://www.c336.icu&#34;</span> <span class="o">+</span> <span class="nx">text_href</span>
+</span></span><span class="line"><span class="cl">        <span class="err">#</span> <span class="nx">print</span><span class="p">(</span><span class="nx">new_href</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">text_name</span><span class="p">,</span> <span class="nx">text_result</span> <span class="o">=</span> <span class="nx">content</span><span class="p">(</span><span class="nx">new_href</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">str_text_name</span> <span class="o">=</span> <span class="nx">str</span><span class="p">(</span><span class="o">*</span><span class="nx">text_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">str_text_result</span> <span class="o">=</span> <span class="nx">str</span><span class="p">(</span><span class="o">*</span><span class="nx">text_result</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&#34;&lt;br /&gt;&#34;</span><span class="p">,</span><span class="s2">&#34;\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">print</span><span class="p">(</span><span class="nx">f</span><span class="s2">&#34;正在保存第{num}节&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">save</span><span class="p">(</span><span class="nx">choose_book</span><span class="p">,</span> <span class="nx">str_text_name</span><span class="p">,</span> <span class="nx">str_text_result</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">num</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">time</span><span class="p">.</span><span class="nx">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">print</span><span class="p">(</span><span class="s2">&#34;没有这本小说&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="最终成果">最终成果
+</h3><ul>
+<li>通过上面的各部分函数间的调度使用，就可以形成完整的小说爬取功能，最后保存下来的小说就会保存在下面的文件夹中（只爬取一些章节作展示）
+<img src="/p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png"
+	width="1920"
+	height="1020"
+	srcset="/p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C_hu7644174324652047670.png 480w, /p/python%E7%88%AC%E8%99%AB%E8%84%9A%E6%9C%AC%E9%A1%B9%E7%9B%AE%E5%B1%95%E7%A4%BA/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C_hu16589930133437521808.png 1024w"
+	loading="lazy"
+	
+		alt="运行结果"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="188"
+		data-flex-basis="451px"
+	
+></li>
+</ul>
+<hr>
+<h2 id="其他展示">其他展示
+</h2><blockquote>
+<p>在完成这一整个较为完整项目的同时，还便写了一些较为简单的爬虫作为练手，这里挑选几个放出来</p>
+</blockquote>
+<h3 id="爬取豆瓣前250电影名">爬取豆瓣前250电影名
+</h3><ul>
+<li>这里使用的是BeautifulSoup4进行内容解析</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">requests</span>
+</span></span><span class="line"><span class="cl"><span class="nx">from</span> <span class="nx">bs4</span> <span class="kr">import</span> <span class="nx">BeautifulSoup</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">定义请求头</span><span class="err">，</span><span class="nx">把程序伪装成浏览器请求</span><span class="err">，</span><span class="nx">从而实现请求不被阻拦</span>
+</span></span><span class="line"><span class="cl"><span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;User-Agent&#39;</span><span class="o">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">start_num</span> <span class="k">in</span> <span class="nx">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">用get方法传入想爬取的链接</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">response</span> <span class="o">=</span> <span class="nx">requests</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;https://movie.douban.com/top250?start={}&#39;</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">start_num</span><span class="p">),</span> <span class="nx">headers</span><span class="o">=</span><span class="nx">headers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">html</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">text</span>   <span class="err">#</span> <span class="nx">获取源代码</span><span class="p">(</span><span class="nx">不加text获得的是访问回应值</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">soup</span> <span class="o">=</span> <span class="nx">BeautifulSoup</span><span class="p">(</span><span class="nx">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">用bs解析源代码</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">all_title</span> <span class="o">=</span> <span class="nx">soup</span><span class="p">.</span><span class="nx">findAll</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="nx">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="o">:</span> <span class="s1">&#39;title&#39;</span><span class="p">})</span>  <span class="err">#</span> <span class="nx">查找所需内容</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">title</span> <span class="k">in</span> <span class="nx">all_title</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">title_string</span> <span class="o">=</span> <span class="nx">title</span><span class="p">.</span><span class="nx">string</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s1">&#39;/&#39;</span> <span class="nx">not</span> <span class="k">in</span> <span class="nx">title_string</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">print</span><span class="p">(</span><span class="nx">title</span><span class="p">.</span><span class="nx">string</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="爬取某电影网站的电影简介">爬取某电影网站的电影简介
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">定义请求头</span>
+</span></span><span class="line"><span class="cl"><span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;User-Agent&#39;</span><span class="o">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.0.0&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="k">for</span> <span class="nx">循环遍历每一个内容介绍的链接</span><span class="err">（</span><span class="nx">也可以使用嵌套循环</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">96</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;https://ssr1.scrape.center/detail/{}&#39;</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>   <span class="err">#</span> <span class="nx">需要爬取的链接</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cinema_1</span> <span class="o">=</span> <span class="nx">requests</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="o">=</span><span class="nx">url</span><span class="p">,</span> <span class="nx">headers</span><span class="o">=</span><span class="nx">headers</span><span class="p">)</span>    <span class="err">#</span> <span class="nx">抓取信息</span><span class="err">（</span><span class="nx">源代码</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">cinema</span> <span class="o">=</span> <span class="nx">cinema_1</span><span class="p">.</span><span class="nx">text</span>  <span class="err">#</span> <span class="nx">转成源代码</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span> <span class="o">=</span> <span class="nx">re</span><span class="p">.</span><span class="nx">findall</span><span class="p">(</span><span class="s1">&#39;&gt;(.*?)&lt;/a&gt;&#39;</span><span class="p">,</span> <span class="nx">cinema</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;&lt;/h2&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>    <span class="err">#</span> <span class="nx">抓取标题</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">introduction</span> <span class="o">=</span> <span class="nx">re</span><span class="p">.</span><span class="nx">findall</span><span class="p">(</span><span class="s1">&#39;&lt;p data-v-63864230=&#34;&#34;&gt;(.*?)&lt;&#39;</span><span class="p">,</span> <span class="nx">cinema</span><span class="p">,</span> <span class="nx">re</span><span class="p">.</span><span class="nx">S</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">strip</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;。&#39;</span><span class="p">,</span> <span class="s1">&#39;\n&#39;</span><span class="p">)</span>    <span class="err">#</span> <span class="nx">抓取内容</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">创建txt保存抓取内容</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">with</span> <span class="nx">open</span><span class="p">(</span><span class="s1">&#39;电影简介&#39;</span> <span class="o">+</span> <span class="s1">&#39;.txt&#39;</span><span class="p">,</span> <span class="nx">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="nx">encoding</span><span class="o">=</span><span class="nx">cinema_1</span><span class="p">.</span><span class="nx">apparent_encoding</span><span class="p">)</span><span class="nx">as</span> <span class="nx">f</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">f</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">str</span><span class="p">(</span><span class="nx">title</span><span class="p">))</span>    <span class="err">#</span> <span class="nx">写入电影名</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">f</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>          <span class="err">#</span> <span class="nx">空行</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">f</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">str</span><span class="p">(</span><span class="nx">introduction</span><span class="p">))</span>    <span class="err">#</span> <span class="nx">写入简介内容</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">f</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>          <span class="err">#</span> <span class="nx">空行</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">f</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="err">#</span> <span class="nx">打印标题</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">print</span><span class="p">(</span><span class="nx">title</span> <span class="o">+</span> <span class="s1">&#39;保存成功&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A02/%E5%B0%81%E9%9D%A2%E5%9B%BE.c9317dce3500637ee84d8f59c1002be9_hu1915436980776815929.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 爬虫学习2"
+                        
+                        data-hash="md5-yTF9zjUAY37oTY9ZwQAr6Q==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">爬虫学习2</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A01/%E5%B0%81%E9%9D%A2%E5%9B%BE.67f402ba65b6515a6ca1ab279df94ae8_hu14029246411607431912.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 爬虫学习1"
+                        
+                        data-hash="md5-Z/QCumW2UVpsoasnnflK6A==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">爬虫学习1</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/%E9%80%9A%E8%BF%87pandas%E5%92%8Copenpyxl%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/">
+        
+        
+            <div class="article-image">
+                <img src="/p/%E9%80%9A%E8%BF%87pandas%E5%92%8Copenpyxl%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/%E5%B0%81%E9%9D%A2%E5%9B%BE.cf181bbcedb3be96b194b962f0ce9e9d_hu14091916847542770589.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 通过pandas和openpyxl实现表格操作"
+                        
+                        data-hash="md5-zxgbvO2zvpaxlLli8M6enQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">通过pandas和openpyxl实现表格操作</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A03/">
+        
+        
+            <div class="article-image">
+                <img src="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A03/%E5%B0%81%E9%9D%A2%E5%9B%BE.7f17441389e3a86c43fd49f8b49fc379_hu14733014170908299398.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Python基础学习3"
+                        
+                        data-hash="md5-fxdEE4njqGxD/Un4tJ/DeQ==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python基础学习3</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A02/">
+        
+        
+            <div class="article-image">
+                <img src="/p/python%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A02/%E5%B0%81%E9%9D%A2%E5%9B%BE.6d52b033aa0c7c3d51582752430ff428_hu16600578530541694614.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Python基础学习2"
+                        
+                        data-hash="md5-bVKwM6oMfD1RWCdSQw/0KA==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python基础学习2</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2025 高志豪的个人博客
+    </section>
+    
+    <section class="powerby">
+        
+
+            </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	
+	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+	
+	<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+</head>
+<body>
+	
+	<meting-js
+			server="netease"
+			type="playlist"
+			id="13784477821"
+			fixed="true"
+		>
+	</meting-js>
+
+	<div id="pageContent">
+		
+	</div>
+	<div id="aplayerContent">
+		
+	</div>
+
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+
+
+
+<script src=https://prts722.github.io/js/topbar.min.js></script>
+
+
+<script>
+    var pjax = new Pjax({
+        selectors: [
+            ".main-container"
+        ]
+
+    })
+
+    pjax._handleResponse = pjax.handleResponse;
+
+    pjax.handleResponse = function(responseText, request, href, options) {
+        if (request.responseText.match("<html")) {
+            
+            let newDom = new DOMParser().parseFromString(responseText, 'text/html');
+            
+            let bodyClass = newDom.body.className;
+            document.body.setAttribute("class", bodyClass)
+            pjax._handleResponse(responseText, request, href, options);
+            
+        }
+    }
+
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+
+    document.addEventListener('pjax:send', () => {
+        topbar.show();
+    })
+
+    document.addEventListener('pjax:complete', () =>{
+        window.Stack.init();
+        initCodeMoreBox();
+        initScrollTop();
+        topbar.hide();
+    })
+
+</script>
+
+
+<div id="particles-js"></div>
+<script src=https://prts722.github.io/background/particles.min.js></script>
+
+<style>
+  @font-face {
+    font-family: '马路口圆体';
+    src: url(https://prts722.github.io/font/%E9%A9%AC%E8%B7%AF%E5%8F%A3%E5%9C%86%E4%BD%93.ttf) format('truetype');
+  }
+
+  :root {
+    --base-font-family: '马路口圆体';
+    --code-font-family: '马路口圆体';
+  }
+
+  #TableOfContents > ul, ol {
+      ul, ol {
+          display: none;
+      }
+      .open {
+          display: block;
+      }
+  }
+
+
+   
+  #backTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      z-index: 99;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      background-image: url(https://prts722.github.io/icons/backTop.svg);
+  }
+   
+  .highlight {
+       
+      max-height: 400px;
+      overflow: hidden;
+  }
+
+  .code-show {
+      max-height: none !important;
+  }
+
+  .code-more-box {
+      width: 100%;
+      padding-top: 78px;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+  }
+
+  .code-more-btn {
+      display: block;
+      margin: auto;
+      width: 44px;
+      height: 22px;
+      background: #f0f0f5;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      padding-top: 6px;
+      cursor: pointer;
+  }
+
+  .code-more-img {
+      cursor: pointer !important;
+      display: block;
+      margin: auto;
+      width: 22px;
+      height: 16px;
+  }
+
+  #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+  }
+</style>
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+                openUl.forEach((ul) => {
+                    ul.classList.remove("open")
+                })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    initTocHide()
+    
+
+    function initScrollTop() {
+        let rightSideBar = document.querySelector(".right-sidebar");
+        if (!rightSideBar) {
+            return;
+        }
+        
+        let btn = document.createElement("div");
+        btn.id = "backTopBtn";
+        btn.onclick = backToTop
+        rightSideBar.appendChild(btn)
+        
+        window.onscroll = function() {
+            
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        };
+    }
+
+    
+
+    function backToTop(){
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
+    initScrollTop();
+
+    
+    function initCodeMoreBox() {
+        let codeBlocks = document.querySelectorAll(".highlight");
+        if (!codeBlocks) {
+            return;
+        }
+        codeBlocks.forEach(codeBlock => {
+            
+            if (codeBlock.scrollHeight <= codeBlock.clientHeight) {
+                return;
+            }
+            
+            
+            let codeMoreBox = document.createElement('div');
+            codeMoreBox.classList.add('code-more-box');
+            
+            let codeMoreBtn = document.createElement('span');
+            codeMoreBtn.classList.add('code-more-btn');
+            codeMoreBtn.addEventListener('click', () => {
+                codeBlock.classList.add('code-show');
+                codeMoreBox.style.display = 'none';
+                
+                window.dispatchEvent(new Event('resize'))
+            })
+            
+            let img = document.createElement('img');
+            img.classList.add('code-more-img');
+            img.src = "https://prts722.github.io/icons/codeMore.png"
+            
+            codeMoreBtn.appendChild(img);
+            codeMoreBox.appendChild(codeMoreBtn);
+            codeBlock.appendChild(codeMoreBox)
+        })
+    }
+
+    initCodeMoreBox();
+    particlesJS.load('particles-js', "https://prts722.github.io/background/particlesjs-config.json", function() {
+        console.log('particles.js loaded - callback');
+    });
+
+    const cssPath = "https://prts722.github.io/waifu/waifu.css"
+    const waifuTipsJsonPath = "https://prts722.github.io/waifu/waifu-tips.json"
+    const tipsJsonPath = "https://prts722.github.io/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+            loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            
+            initWidget({
+                waifuPath: waifuTipsJsonPath,
+                cdnPath: "https://cdn.jsdelivr.net/gh/prts722/static-resource@v1.0.0",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+            initWaifuMouseEvent();
+        });
+    }
+
+    function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+        
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+
+</script>
+    </body>
+</html>

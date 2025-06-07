@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>表格处理 on 高志豪的个人博客</title>
+        <link>https://prts722.github.io/categories/%E8%A1%A8%E6%A0%BC%E5%A4%84%E7%90%86/</link>
+        <description>Recent content in 表格处理 on 高志豪的个人博客</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>高志豪的个人博客</copyright>
+        <lastBuildDate>Wed, 08 May 2024 21:34:53 +0800</lastBuildDate><atom:link href="https://prts722.github.io/categories/%E8%A1%A8%E6%A0%BC%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>通过pandas和openpyxl实现表格操作</title>
+        <link>https://prts722.github.io/p/%E9%80%9A%E8%BF%87pandas%E5%92%8Copenpyxl%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/</link>
+        <pubDate>Wed, 08 May 2024 21:34:53 +0800</pubDate>
+        
+        <guid>https://prts722.github.io/p/%E9%80%9A%E8%BF%87pandas%E5%92%8Copenpyxl%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/</guid>
+        <description>&lt;img src="https://prts722.github.io/p/%E9%80%9A%E8%BF%87pandas%E5%92%8Copenpyxl%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/%E5%B0%81%E9%9D%A2%E5%9B%BE.png" alt="Featured image of post 通过pandas和openpyxl实现表格操作" /&gt;&lt;blockquote&gt;
+&lt;p&gt;目前可以写各种爬虫脚本来获取需要资源了，下一步就是对爬取的数据进行处理，这样的话何不直接研究一下通过python来处理表格excel表格呢，所以在进行了几天的研究后，&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
