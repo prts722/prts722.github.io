@@ -219,7 +219,71 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#pandas和openpyxl的区别">pandas和openpyxl的区别</a>
+      <ol>
+        <li><a href="#openpyxl">Openpyxl</a></li>
+        <li><a href="#pandas">Pandas</a></li>
+        <li><a href="#性能和适用场景">性能和适用场景</a></li>
+        <li><a href="#结合使用">结合使用</a></li>
+      </ol>
+    </li>
+    <li><a href="#部分常用语句">部分常用语句</a>
+      <ol>
+        <li><a href="#笔记">笔记</a></li>
+        <li><a href="#指定参数常用">指定参数（常用）</a></li>
+      </ol>
+    </li>
+    <li><a href="#pandas-1">Pandas</a>
+      <ol>
+        <li><a href="#读取文件">读取文件</a></li>
+        <li><a href="#写入文件">写入文件</a></li>
+        <li><a href="#代码展示">代码展示</a></li>
+      </ol>
+    </li>
+    <li><a href="#openpyxl-1">Openpyxl</a>
+      <ol>
+        <li><a href="#读取和打开文件">读取和打开文件</a></li>
+        <li><a href="#写入数据到excel文件">写入数据到Excel文件</a></li>
+        <li><a href="#单元格处理">单元格处理</a>
+          <ol>
+            <li><a href="#合并和拆分单元格">合并和拆分单元格</a></li>
+            <li><a href="#设置单元格格式字体颜色对齐">设置单元格格式（字体、颜色、对齐）</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#综合使用成果展示">综合使用（成果展示）</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="has-image main-article">
@@ -301,8 +365,697 @@
     
     
     <blockquote>
-<p>目前可以写各种爬虫脚本来获取需要资源了，下一步就是对爬取的数据进行处理，这样的话何不直接研究一下通过python来处理表格excel表格呢，所以在进行了几天的研究后，</p>
+<p>目前可以写各种爬虫脚本来获取需要资源了，下一步就是对爬取的数据进行处理，这样的话何不直接研究一下通过python来处理表格excel表格呢，所以在进行了几天的研究后，初步学会了使用pandas和openpyxl处理表格数据</p>
 </blockquote>
+<h2 id="pandas和openpyxl的区别">pandas和openpyxl的区别
+</h2><p>在处理Excel文件时，Python提供了多个库，其中openpyxl和pandas是两个常用的选项。但使用场景各不相同</p>
+<h3 id="openpyxl">Openpyxl
+</h3><p>Openpyxl是一个专门用于读写Excel 2010 xlsx/xlsm/xltx/xltm文件的库。它允许你操作Excel文件，例如创建新的工作表、读取或修改已有的工作表、更改单元格样式等。Openpyxl的优势在于它提供了对Excel文件结构的细粒度控制，特别是当需要处理复杂的Excel文件结构时，如合并单元格、设置公式等。</p>
+<h3 id="pandas">Pandas
+</h3><p>Pandas是一个强大的数据分析和操作库，它提供了DataFrame和Series两种数据结构来处理表格数据。Pandas适合于数据清洗、转换、分析等任务，特别是在数据探索阶段，它能够快速地读取和转换数据，支持各种文件格式的输入输出，包括CSV、Excel等。
+Pandas在处理大型数据集时表现出色，它可以快速读取和分析数据，但在处理复杂的Excel文件结构时可能不如openpyxl灵活。</p>
+<h3 id="性能和适用场景">性能和适用场景
+</h3><p>在性能方面，openpyxl在读取大量数据时通常比pandas更快。例如，当处理稀疏矩阵数据集时，openpyxl显示出更高的效率。然而，pandas在数据分析方面更加强大，它提供了丰富的数据处理功能，如数据聚合、合并、分组等。在实际应用中，建议根据具体需求选择合适的库。如果需要处理复杂的Excel文件结构，或者需要对Excel文件的样式进行精细控制，openpyxl是更好的选择。而对于数据分析和探索，尤其是当数据结构相对简单时，pandas则更为合适。</p>
+<h3 id="结合使用">结合使用
+</h3><p>在某些情况下，结合使用openpyxl和pandas可以发挥两者的优势。例如，可以先使用openpyxl进行数据的预处理，如格式化和清理，然后再使用pandas进行深入的数据分析和探索。这种结合使用的方式可以提高工作效率，同时充分利用两个库的强项。openpyxl和pandas各有所长，选择哪个库取决于你的具体需求和工作流程。了解它们的特点和区别，可以帮助你更高效地处理Excel数据。</p>
+<hr>
+<h2 id="部分常用语句">部分常用语句
+</h2><h3 id="笔记">笔记
+</h3><blockquote>
+<p>下面是练习时自己做的一些代码笔记，部分变量名使用时可能需要替换，这里只是针对每句话做的笔记</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">pandas</span> <span class="nx">as</span> <span class="nx">pd</span>
+</span></span><span class="line"><span class="cl"><span class="nx">from</span> <span class="nx">openpyxl</span> <span class="kr">import</span> <span class="nx">load_workbook</span><span class="p">,</span> <span class="nx">Workbook</span>
+</span></span><span class="line"><span class="cl"><span class="nx">from</span> <span class="nx">openpyxl</span><span class="p">.</span><span class="nx">styles</span> <span class="kr">import</span> <span class="nx">Font</span><span class="p">,</span> <span class="nx">Alignment</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">用</span> <span class="nx">pandas</span> <span class="nx">读取</span> <span class="nx">Excel</span><span class="err">（</span><span class="nx">默认读取第一个</span> <span class="nx">Sheet</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="nx">df_1</span> <span class="o">=</span> <span class="nx">pd</span><span class="p">.</span><span class="nx">read_excel</span><span class="p">(</span><span class="nx">r</span><span class="s2">&#34;C:\Users\ASUS\Desktop\计算机科学与技术学院党委确定入党积极分子公示表.xlsx&#34;</span><span class="p">,</span> <span class="nx">engine</span><span class="o">=</span><span class="s2">&#34;openpyxl&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">读取指定</span> <span class="nx">Sheet</span><span class="p">(</span><span class="nx">表一表二</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">df_2</span> <span class="o">=</span> <span class="nx">pd</span><span class="p">.</span><span class="nx">read_excel</span><span class="p">(</span><span class="s2">&#34;文件名.xlsx&#34;</span><span class="p">,</span> <span class="nx">sheet_name</span><span class="o">=</span><span class="s2">&#34;Sheet名&#34;</span><span class="p">,</span> <span class="nx">engine</span><span class="o">=</span><span class="s2">&#34;openpyxl&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">用</span> <span class="nx">openpyxl</span> <span class="nx">读取整个工作簿</span>
+</span></span><span class="line"><span class="cl"><span class="nx">wb_1</span> <span class="o">=</span> <span class="nx">load_workbook</span><span class="p">(</span><span class="s2">&#34;文件名.xlsx&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">方法1</span><span class="err">（</span><span class="nx">pandas</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheets_1</span> <span class="o">=</span> <span class="nx">pd</span><span class="p">.</span><span class="nx">ExcelFile</span><span class="p">(</span><span class="s2">&#34;文件名.xlsx&#34;</span><span class="p">,</span> <span class="nx">engine</span><span class="o">=</span><span class="s2">&#34;openpyxl&#34;</span><span class="p">).</span><span class="nx">sheet_names</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">方法2</span><span class="err">（</span><span class="nx">openpyxl</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="nx">wb_2</span> <span class="o">=</span> <span class="nx">load_workbook</span><span class="p">(</span><span class="s2">&#34;文件名.xlsx&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheets</span> <span class="o">=</span> <span class="nx">wb_2</span><span class="p">.</span><span class="nx">sheetnames</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">打印整个</span> <span class="nx">DataFrame</span>
+</span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="nx">df</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">打印前5行</span>
+</span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="nx">df</span><span class="p">.</span><span class="nx">head</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">遍历行</span><span class="err">（</span><span class="nx">pandas</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">row</span> <span class="k">in</span> <span class="nx">df</span><span class="p">.</span><span class="nx">iterrows</span><span class="p">()</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">print</span><span class="p">(</span><span class="nx">row</span><span class="p">[</span><span class="s2">&#34;列名&#34;</span><span class="p">])</span>  <span class="err">#</span> <span class="nx">按列名获取值</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">获取某列的值</span><span class="err">（</span><span class="nx">转为列表</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="nx">column_data</span> <span class="o">=</span> <span class="nx">df</span><span class="p">[</span><span class="s2">&#34;列名&#34;</span><span class="p">].</span><span class="nx">tolist</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">获取某行数据</span><span class="err">（</span><span class="nx">第一行</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="nx">row_data</span> <span class="o">=</span> <span class="nx">df</span><span class="p">.</span><span class="nx">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">tolist</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">修改单元格</span><span class="err">（</span><span class="nx">pandas</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="nx">df</span><span class="p">.</span><span class="nx">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&#34;列名&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;新值&#34;</span>  <span class="err">#</span> <span class="nx">修改第1行对应列的值</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">用</span> <span class="nx">openpyxl</span> <span class="nx">直接修改单元格</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ws</span> <span class="o">=</span> <span class="nx">wb</span><span class="p">.</span><span class="nx">active</span>  <span class="err">#</span> <span class="nx">获取活动</span> <span class="nx">Sheet</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ws</span><span class="p">[</span><span class="s2">&#34;C2&#34;</span><span class="p">].</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">&#34;新值&#34;</span>  <span class="err">#</span> <span class="nx">直接定位单元格</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ws</span><span class="p">.</span><span class="nx">cell</span><span class="p">(</span><span class="nx">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nx">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&#34;新值&#34;</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">通过行列号修改</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">保存为</span> <span class="nx">Excel</span><span class="err">（</span><span class="nx">pandas</span><span class="err">，</span><span class="nx">覆盖原文件</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="nx">df</span><span class="p">.</span><span class="nx">to_excel</span><span class="p">(</span><span class="s2">&#34;新文件名.xlsx&#34;</span><span class="p">,</span> <span class="nx">index</span><span class="o">=</span><span class="nx">False</span><span class="p">,</span> <span class="nx">engine</span><span class="o">=</span><span class="s2">&#34;openpyxl&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">用</span> <span class="nx">openpyxl</span> <span class="nx">保存工作簿</span>
+</span></span><span class="line"><span class="cl"><span class="nx">wb</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="s2">&#34;新文件名.xlsx&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">插入一行</span><span class="err">（</span><span class="nx">openpyxl</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ws</span><span class="p">.</span><span class="nx">insert_rows</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">在第2行插入空行</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">删除列</span><span class="err">（</span><span class="nx">pandas</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="nx">df</span> <span class="o">=</span> <span class="nx">df</span><span class="p">.</span><span class="nx">drop</span><span class="p">(</span><span class="s2">&#34;列名&#34;</span><span class="p">,</span> <span class="nx">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">删除指定列</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">用</span> <span class="nx">openpyxl</span> <span class="nx">合并单元格</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ws</span><span class="p">.</span><span class="nx">merge_cells</span><span class="p">(</span><span class="s2">&#34;A1:D1&#34;</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">合并</span> <span class="nx">A1到D1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">设置字体加粗</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ws</span><span class="p">[</span><span class="s2">&#34;A1&#34;</span><span class="p">].</span><span class="nx">font</span> <span class="o">=</span> <span class="nx">Font</span><span class="p">(</span><span class="nx">bold</span><span class="o">=</span><span class="nx">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">设置居中对齐</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ws</span><span class="p">[</span><span class="s2">&#34;A1&#34;</span><span class="p">].</span><span class="nx">alignment</span> <span class="o">=</span> <span class="nx">Alignment</span><span class="p">(</span><span class="nx">horizontal</span><span class="o">=</span><span class="s2">&#34;center&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="指定参数常用">指定参数（常用）
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">df</span> <span class="o">=</span> <span class="nx">pd</span><span class="p">.</span><span class="nx">read_excel</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;input.xlsx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">sheet_name</span><span class="o">=</span><span class="s2">&#34;Sheet1&#34;</span><span class="p">,</span>   <span class="err">#</span> <span class="nx">指定工作表名</span><span class="o">/</span><span class="nx">序号</span><span class="err">（</span><span class="nx">默认0</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">header</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>              <span class="err">#</span> <span class="nx">从第2行开始读取表头</span><span class="err">（</span><span class="nx">默认0</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>       <span class="err">#</span> <span class="nx">跳过指定行</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">usecols</span><span class="o">=</span><span class="s2">&#34;A:C,F&#34;</span><span class="p">,</span>       <span class="err">#</span> <span class="nx">选择指定列</span><span class="err">（</span><span class="s2">&#34;A:C&#34;</span><span class="nx">或</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">nrows</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>             <span class="err">#</span> <span class="nx">只读前100行</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;列名&#34;</span><span class="o">:</span> <span class="nx">str</span><span class="p">}</span>    <span class="err">#</span> <span class="nx">指定列数据类型</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<blockquote>
+<p>下面分别浅显的记录一下pandas和openpyxl的使用方法，在这之前都要通过<code>pip install pandas/openpyxl</code>来安装对应模块</p>
+</blockquote>
+<hr>
+<h2 id="pandas-1">Pandas
+</h2><h3 id="读取文件">读取文件
+</h3><p>Pandas 提供了丰富的 Excel 文件操作功能，帮助我们方便地读取和写入 .xls 和 .xlsx 文件，支持多表单、索引、列选择等复杂操作，是数据分析中必备的工具。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>操作</th>
+          <th>方法</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>读取 Excel 文件</td>
+          <td>pd.read_excel()</td>
+          <td>读取 Excel 文件，返回 DataFrame</td>
+      </tr>
+      <tr>
+          <td>将 DataFrame 写入 Excel</td>
+          <td>DataFrame.to_excel()</td>
+          <td>将 DataFrame 写入 Excel 文件</td>
+      </tr>
+      <tr>
+          <td>加载 Excel 文件</td>
+          <td>pd.ExcelFile()</td>
+          <td>加载 Excel 文件并访问多个表单</td>
+      </tr>
+      <tr>
+          <td>使用 ExcelWriter 写多个表单</td>
+          <td>pd.ExcelWriter()</td>
+          <td>写入多个 DataFrame 到同一 Excel 文件的不同表单</td>
+      </tr>
+  </tbody>
+</table></div>
+<p><strong>通过pd.read_excel()读取 Excel 文件，它支持读取 .xls 和 .xlsx 格式的文件。</strong></p>
+<p><strong>部分参数：</strong></p>
+<ul>
+<li>io：这是必需的参数，指定了要读取的 Excel 文件的路径或文件对象。</li>
+<li>sheet_name=0：指定要读取的工作表名称或索引。默认为0，即第一个工作表。</li>
+<li>header=0：指定用作列名的行。默认为0，即第一行。</li>
+<li>names=None：用于指定列名的列表。如果提供，将覆盖文件中的列名。</li>
+<li>index_col=None：指定用作行索引的列。可以是列的名称或数字。</li>
+<li>usecols=None：指定要读取的列。可以是列名的列表或列索引的列表。</li>
+<li>dtype=None：指定列的数据类型。可以是字典格式，键为列名，值为数据类型。</li>
+<li>engine=None：指定解析引擎。默认为None，pandas 会自动选择。</li>
+<li>converters=None：用于转换数据的函数字典。</li>
+<li>true_values=None：指定应该被视为布尔值True的值。</li>
+<li>false_values=None：指定应该被视为布尔值False的值。</li>
+<li>skiprows=None：指定要跳过的行数或要跳过的行的列表。</li>
+<li>nrows=None：指定要读取的行数。</li>
+<li>na_values=None：指定应该被视为缺失值的值。</li>
+<li>date_format=None：指定日期的格式。</li>
+<li>skipfooter=0：指定要跳过的文件末尾的行数。</li>
+</ul>
+<h3 id="写入文件">写入文件
+</h3><p>DataFrame.to_excel() - 将 DataFrame 写入 Excel 文件，to_excel() 方法用于将 DataFrame 写入 Excel 文件，支持 .xls 和 .xlsx 格式。<br>
+语法格式如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">DataFrame</span><span class="p">.</span><span class="nx">to_excel</span><span class="p">(</span><span class="nx">excel_writer</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="nx">sheet_name</span><span class="o">=</span><span class="s1">&#39;Sheet1&#39;</span><span class="p">,</span> <span class="nx">na_rep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">float_format</span><span class="o">=</span><span class="nx">None</span><span class="p">,</span> <span class="nx">columns</span><span class="o">=</span><span class="nx">None</span><span class="p">,</span> <span class="nx">header</span><span class="o">=</span><span class="nx">True</span><span class="p">,</span> <span class="nx">index</span><span class="o">=</span><span class="nx">True</span><span class="p">,</span> <span class="nx">index_label</span><span class="o">=</span><span class="nx">None</span><span class="p">,</span> <span class="nx">startrow</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">startcol</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">engine</span><span class="o">=</span><span class="nx">None</span><span class="p">,</span> <span class="nx">merge_cells</span><span class="o">=</span><span class="nx">True</span><span class="p">,</span> <span class="nx">inf_rep</span><span class="o">=</span><span class="s1">&#39;inf&#39;</span><span class="p">,</span> <span class="nx">freeze_panes</span><span class="o">=</span><span class="nx">None</span><span class="p">,</span> <span class="nx">storage_options</span><span class="o">=</span><span class="nx">None</span><span class="p">,</span> <span class="nx">engine_kwargs</span><span class="o">=</span><span class="nx">None</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>部分参数：</strong>
+参数说明：</p>
+<ul>
+<li>excel_writer：这是必需的参数，指定了要写入的 Excel 文件路径或文件对象。</li>
+<li>sheet_name=&lsquo;Sheet1&rsquo;：指定写入的工作表名称，默认为 &lsquo;Sheet1&rsquo;。</li>
+<li>na_rep=&rsquo;&rsquo;：指定在 Excel 文件中表示缺失值（NaN）的字符串，默认为空字符串。</li>
+<li>float_format=None：指定浮点数的格式。如果为 None，则使用 Excel 的默认格式。</li>
+<li>columns=None：指定要写入的列。如果为 None，则写入所有列。</li>
+<li>header=True：指定是否写入列名作为第一行。如果为 False，则不写入列名。</li>
+<li>index=True：指定是否写入索引作为第一列。如果为 False，则不写入索引。</li>
+<li>index_label=None：指定索引列的标签。如果为 None，则不写入索引标签。</li>
+<li>startrow=0：指定开始写入的行号，默认从第0行开始。</li>
+<li>startcol=0：指定开始写入的列号，默认从第0列开始。</li>
+<li>engine=None：指定写入 Excel 文件时使用的引擎，默认为 None，pandas 会自动选择。</li>
+<li>merge_cells=True：指定是否合并单元格。如果为 True，则合并具有相同值的单元格。</li>
+<li>inf_rep=&lsquo;inf&rsquo;：指定在 Excel 文件中表示无穷大值的字符串，默认为 &lsquo;inf&rsquo;。</li>
+<li>freeze_panes=None：指定冻结窗格的位置。如果为 None，则不冻结窗格。</li>
+<li>storage_options=None：用于云存储的参数字典。</li>
+<li>engine_kwargs=None：传递给引擎的额外参数字典。</li>
+</ul>
+<h3 id="代码展示">代码展示
+</h3><blockquote>
+<p>下面是我自己第一次用pandas写的一个代码，功能不多，仅仅是改变表格中的已有数据，同时使用tabulate对表格进行美化</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">df</span> <span class="o">=</span> <span class="nx">pd</span><span class="p">.</span><span class="nx">read_excel</span><span class="p">(</span><span class="s2">&#34;表名.xlsx&#34;</span><span class="p">,</span> <span class="nx">engine</span><span class="o">=</span><span class="s2">&#34;openpyxl&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">设置pandas显示选项</span><span class="err">（</span><span class="nx">显示所有行</span><span class="o">/</span><span class="nx">列</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pd</span><span class="p">.</span><span class="nx">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="nx">None</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">不限制行数</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pd</span><span class="p">.</span><span class="nx">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="nx">None</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">不限制列数</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pd</span><span class="p">.</span><span class="nx">set_option</span><span class="p">(</span><span class="s1">&#39;display.width&#39;</span><span class="p">,</span> <span class="nx">None</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">不限制控制台宽度</span>
+</span></span><span class="line"><span class="cl"><span class="nx">pd</span><span class="p">.</span><span class="nx">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="nx">None</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">不限制列宽</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">修改第4</span><span class="o">~</span><span class="mi">7</span><span class="nx">行</span><span class="err">，</span><span class="nx">列名为姓名的数据</span>
+</span></span><span class="line"><span class="cl"><span class="nx">df</span><span class="p">.</span><span class="nx">loc</span><span class="p">[</span><span class="mi">3</span><span class="o">:</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="o">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;姓名1&#34;</span><span class="p">,</span><span class="s2">&#34;性别&#34;</span><span class="p">],[</span><span class="s2">&#34;姓名2&#34;</span><span class="p">,</span><span class="s2">&#34;性别&#34;</span><span class="p">],[</span><span class="s2">&#34;姓名3&#34;</span><span class="p">,</span><span class="s2">&#34;性别&#34;</span><span class="p">],[</span><span class="s2">&#34;姓名4&#34;</span><span class="p">,</span><span class="s2">&#34;性别&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">修改满足条件的单元格</span>
+</span></span><span class="line"><span class="cl"><span class="nx">df</span><span class="p">.</span><span class="nx">loc</span><span class="p">[</span><span class="nx">df</span><span class="p">[</span><span class="s2">&#34;姓名&#34;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&#34;xx&#34;</span><span class="p">,</span> <span class="s2">&#34;民族&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;xx&#34;</span>  <span class="err">#</span> <span class="nx">将xx的民族改为xx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">df</span><span class="p">.</span><span class="nx">to_excel</span><span class="p">(</span><span class="s2">&#34;表名.xlsx&#34;</span><span class="p">,</span> <span class="nx">index</span><span class="o">=</span><span class="nx">False</span><span class="p">,</span> <span class="nx">engine</span><span class="o">=</span><span class="s2">&#34;openpyxl&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">美化输出</span>
+</span></span><span class="line"><span class="cl"><span class="nx">x</span> <span class="o">=</span> <span class="nx">tabulate</span><span class="p">(</span><span class="nx">df</span><span class="p">,</span> <span class="nx">headers</span><span class="o">=</span><span class="s1">&#39;keys&#39;</span><span class="p">,</span> <span class="nx">tablefmt</span><span class="o">=</span><span class="s1">&#39;grid&#39;</span><span class="p">,</span> <span class="nx">showindex</span><span class="o">=</span><span class="nx">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="openpyxl-1">Openpyxl
+</h2><h3 id="读取和打开文件">读取和打开文件
+</h3><p>打开一个现有的 Excel 文件并读取其中的数据是 openpyxl 最基础的操作之一。让我们首先看一下如何打开一个文件并读取特定的单元格内容。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">openpyxl</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">打开</span> <span class="nx">Excel</span> <span class="nx">文件</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workbook</span><span class="o">=</span><span class="nx">openpyxl</span><span class="p">.</span><span class="nx">load_workbook</span><span class="p">(</span><span class="s1">&#39;example.xlsx&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">选择活跃的工作表</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="o">=</span><span class="nx">workbook</span><span class="p">.</span><span class="nx">active</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">读取</span> <span class="nx">A1</span> <span class="nx">单元格的内容</span>
+</span></span><span class="line"><span class="cl"><span class="nx">cell_value</span><span class="o">=</span><span class="nx">sheet</span><span class="p">[</span><span class="s1">&#39;A1&#39;</span><span class="p">].</span><span class="nx">value</span>
+</span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="nx">f</span><span class="s2">&#34;Cell A1 value: {cell_value}&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这段代码中：</p>
+<ul>
+<li>load_workbook() 用来打开一个现有的 Excel 文件。</li>
+<li>workbook.active 选择活动的工作表（默认情况下是第一个工作表）。</li>
+<li>通过 sheet[&lsquo;A1&rsquo;] 获取 A1 单元格的内容。</li>
+</ul>
+<h3 id="写入数据到excel文件">写入数据到Excel文件
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">openpyxl</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">打开现有的</span> <span class="nx">Excel</span> <span class="nx">文件</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workbook</span><span class="o">=</span><span class="nx">openpyxl</span><span class="p">.</span><span class="nx">load_workbook</span><span class="p">(</span><span class="s1">&#39;example.xlsx&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="o">=</span><span class="nx">workbook</span><span class="p">.</span><span class="nx">active</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">向</span> <span class="nx">A2</span> <span class="nx">单元格写入数据</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="p">[</span><span class="s1">&#39;A2&#39;</span><span class="p">]</span> <span class="o">=</span><span class="s2">&#34;Hello, Excel!&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">保存文件</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workbook</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="s1">&#39;example.xlsx&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里，我们将 &ldquo;Hello, Excel!&rdquo; 写入到 A2 单元格，并保存修改后的 Excel 文件。</p>
+<h3 id="单元格处理">单元格处理
+</h3><h4 id="合并和拆分单元格">合并和拆分单元格
+</h4><p>在 Excel 中，经常会使用合并单元格来增强表格的可读性，openpyxl 同样支持合并和拆分单元格。
+<strong>合并：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">openpyxl</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">打开工作簿</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workbook</span><span class="o">=</span><span class="nx">openpyxl</span><span class="p">.</span><span class="nx">load_workbook</span><span class="p">(</span><span class="s1">&#39;example.xlsx&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="o">=</span><span class="nx">workbook</span><span class="p">.</span><span class="nx">active</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">合并</span> <span class="nx">A1</span> <span class="nx">和</span> <span class="nx">B1</span> <span class="nx">单元格</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="p">.</span><span class="nx">merge_cells</span><span class="p">(</span><span class="s1">&#39;A1:B1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">设置合并后单元格的值</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="p">[</span><span class="s1">&#39;A1&#39;</span><span class="p">]</span> <span class="o">=</span><span class="s2">&#34;Merged Cells!&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">保存修改</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workbook</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="s1">&#39;example.xlsx&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>拆分：</strong>
+其中，openpyxl 不支持直接拆分合并单元格，但可以通过取消合并来实现类似拆分的效果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">openpyxl</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">打开工作簿</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workbook</span><span class="o">=</span><span class="nx">openpyxl</span><span class="p">.</span><span class="nx">load_workbook</span><span class="p">(</span><span class="s1">&#39;example.xlsx&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="o">=</span><span class="nx">workbook</span><span class="p">.</span><span class="nx">active</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">取消</span> <span class="nx">A1</span> <span class="nx">和</span> <span class="nx">B1</span> <span class="nx">的合并</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="p">.</span><span class="nx">unmerge_cells</span><span class="p">(</span><span class="s1">&#39;A1:B1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">保存修改</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workbook</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="s1">&#39;example.xlsx&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="设置单元格格式字体颜色对齐">设置单元格格式（字体、颜色、对齐）
+</h4><p><strong>设置字体样式：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">from</span> <span class="nx">openpyxl</span><span class="p">.</span><span class="nx">styles</span> <span class="kr">import</span> <span class="nx">Font</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">打开工作簿</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workbook</span><span class="o">=</span><span class="nx">openpyxl</span><span class="p">.</span><span class="nx">load_workbook</span><span class="p">(</span><span class="s1">&#39;example.xlsx&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="o">=</span><span class="nx">workbook</span><span class="p">.</span><span class="nx">active</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">设置</span> <span class="nx">A1</span> <span class="nx">单元格的字体为粗体</span><span class="err">、</span><span class="nx">红色</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="p">[</span><span class="s1">&#39;A1&#39;</span><span class="p">].</span><span class="nx">font</span><span class="o">=</span><span class="nx">Font</span><span class="p">(</span><span class="nx">bold</span><span class="o">=</span><span class="nx">True</span><span class="p">,</span> <span class="nx">color</span><span class="o">=</span><span class="s2">&#34;FF0000&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">保存文件</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workbook</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="s1">&#39;example.xlsx&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>设置单元格背景颜色：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">from</span> <span class="nx">openpyxl</span><span class="p">.</span><span class="nx">styles</span> <span class="kr">import</span> <span class="nx">PatternFill</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">打开工作簿</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workbook</span><span class="o">=</span><span class="nx">openpyxl</span><span class="p">.</span><span class="nx">load_workbook</span><span class="p">(</span><span class="s1">&#39;example.xlsx&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="o">=</span><span class="nx">workbook</span><span class="p">.</span><span class="nx">active</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">设置</span> <span class="nx">A1</span> <span class="nx">单元格的背景色为黄色</span>
+</span></span><span class="line"><span class="cl"><span class="nx">yellow_fill</span><span class="o">=</span><span class="nx">PatternFill</span><span class="p">(</span><span class="nx">start_color</span><span class="o">=</span><span class="s2">&#34;FFFF00&#34;</span><span class="p">,</span> <span class="nx">end_color</span><span class="o">=</span><span class="s2">&#34;FFFF00&#34;</span><span class="p">,</span> <span class="nx">fill_type</span><span class="o">=</span><span class="s2">&#34;solid&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="p">[</span><span class="s1">&#39;A1&#39;</span><span class="p">].</span><span class="nx">fill</span><span class="o">=</span><span class="nx">yellow_fill</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">保存文件</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workbook</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="s1">&#39;example.xlsx&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>设置单元格对齐：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">from</span> <span class="nx">openpyxl</span><span class="p">.</span><span class="nx">styles</span> <span class="kr">import</span> <span class="nx">Alignment</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">打开工作簿</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workbook</span><span class="o">=</span><span class="nx">openpyxl</span><span class="p">.</span><span class="nx">load_workbook</span><span class="p">(</span><span class="s1">&#39;example.xlsx&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="o">=</span><span class="nx">workbook</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">active</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">设置</span> <span class="nx">A1</span> <span class="nx">单元格的内容居中对齐</span>
+</span></span><span class="line"><span class="cl"><span class="nx">sheet</span><span class="p">[</span><span class="s1">&#39;A1&#39;</span><span class="p">].</span><span class="nx">alignment</span><span class="o">=</span><span class="nx">Alignment</span><span class="p">(</span><span class="nx">horizontal</span><span class="o">=</span><span class="s2">&#34;center&#34;</span><span class="p">,</span> <span class="nx">vertical</span><span class="o">=</span><span class="s2">&#34;center&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">保存文件</span>
+</span></span><span class="line"><span class="cl"><span class="nx">workbook</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="s1">&#39;example.xlsx&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="综合使用成果展示">综合使用（成果展示）
+</h2><blockquote>
+<p>在学会了pandas和openpyxl两种表格的基础处理方法后，我写了一个较为完整的表格数据定位追加功能，下面是完整的代码展示</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">pandas</span> <span class="nx">as</span> <span class="nx">pd</span>
+</span></span><span class="line"><span class="cl"><span class="nx">from</span> <span class="nx">openpyxl</span> <span class="kr">import</span> <span class="nx">load_workbook</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">def</span> <span class="nx">read_excel</span><span class="p">(</span><span class="nx">excel_href</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">openpyxl读取</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">wb</span> <span class="o">=</span> <span class="nx">load_workbook</span><span class="p">(</span><span class="nx">excel_href</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ws</span> <span class="o">=</span> <span class="nx">wb</span><span class="p">.</span><span class="nx">active</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">pandas读取</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">pd_re</span> <span class="o">=</span> <span class="nx">pd</span><span class="p">.</span><span class="nx">read_excel</span><span class="p">(</span><span class="nx">excel_href</span><span class="p">,</span> <span class="nx">engine</span><span class="o">=</span><span class="s2">&#34;openpyxl&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">wb</span><span class="p">,</span> <span class="nx">ws</span><span class="p">,</span> <span class="nx">pd_re</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">def</span> <span class="nx">row_update</span><span class="p">(</span><span class="nx">f_excel_href</span><span class="p">,</span><span class="nx">insert_data</span><span class="p">,</span><span class="nx">col_index_str</span><span class="p">,</span> <span class="nx">col_index_num</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">调用读取表格函数</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title_wb</span><span class="p">,</span><span class="nx">title_ws</span><span class="p">,</span> <span class="nx">title_pd_re</span> <span class="o">=</span> <span class="nx">read_excel</span><span class="p">(</span><span class="nx">f_excel_href</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="mf">2.</span> <span class="nx">查找书名列的最后一行的行号</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">last_row</span> <span class="o">=</span> <span class="nx">title_ws</span><span class="p">.</span><span class="nx">max_row</span>  <span class="err">#</span> <span class="nx">获取当前工作表的最后一行</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">row</span> <span class="k">in</span> <span class="nx">range</span><span class="p">(</span><span class="nx">last_row</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">:</span>  <span class="err">#</span> <span class="nx">从最后一行向上查找</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">title_ws</span><span class="p">[</span><span class="nx">f</span><span class="s2">&#34;{col_index_str}{row}&#34;</span><span class="p">].</span><span class="nx">value</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">last_book_row</span> <span class="o">=</span> <span class="nx">row</span>  <span class="err">#</span> <span class="nx">记录最后一本书的行号</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">num</span><span class="p">,</span> <span class="nx">l</span> <span class="k">in</span> <span class="nx">enumerate</span><span class="p">(</span><span class="nx">insert_data</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">title_ws</span><span class="p">.</span><span class="nx">cell</span><span class="p">(</span><span class="nx">row</span><span class="o">=</span><span class="nx">last_book_row</span><span class="p">,</span> <span class="nx">column</span><span class="o">=</span><span class="nx">col_index_num</span> <span class="o">+</span> <span class="nx">num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">value</span><span class="o">=</span><span class="nx">l</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">num索引从0开始</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">title_wb</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">r</span><span class="s2">&#34;C:\Users\ASUS\Desktop\new.xlsx&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">title_wb</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">def</span> <span class="nx">col_update</span><span class="p">(</span><span class="nx">f_excel_href</span><span class="p">,</span><span class="nx">insert_data</span><span class="p">,</span><span class="nx">col_index_str</span><span class="p">,</span> <span class="nx">col_index_num</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">调用读取表格函数</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title_wb</span><span class="p">,</span><span class="nx">title_ws</span><span class="p">,</span> <span class="nx">title_pd_re</span> <span class="o">=</span> <span class="nx">read_excel</span><span class="p">(</span><span class="nx">f_excel_href</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="mf">2.</span> <span class="nx">查找书名列的最后一行的行号</span><span class="err">（</span><span class="nx">假设书名在</span> <span class="nx">E</span> <span class="nx">列</span><span class="err">）</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">last_row</span> <span class="o">=</span> <span class="nx">title_ws</span><span class="p">.</span><span class="nx">max_row</span>  <span class="err">#</span> <span class="nx">获取当前工作表的最后一行</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">row</span> <span class="k">in</span> <span class="nx">range</span><span class="p">(</span><span class="nx">last_row</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">:</span>  <span class="err">#</span> <span class="nx">从最后一行向上查找</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nx">title_ws</span><span class="p">[</span><span class="nx">f</span><span class="s2">&#34;{col_index_str}{row}&#34;</span><span class="p">].</span><span class="nx">value</span><span class="o">:</span>  <span class="err">#</span> <span class="nx">如果</span> <span class="nx">E</span> <span class="nx">列当前行有数据</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">last_book_row</span> <span class="o">=</span> <span class="nx">row</span>  <span class="err">#</span> <span class="nx">记录最后一本书的行号</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="nx">num</span><span class="p">,</span><span class="nx">l</span> <span class="k">in</span> <span class="nx">enumerate</span><span class="p">(</span><span class="nx">insert_data</span><span class="p">)</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">title_ws</span><span class="p">.</span><span class="nx">cell</span><span class="p">(</span><span class="nx">row</span><span class="o">=</span><span class="nx">last_book_row</span> <span class="o">+</span> <span class="nx">num</span> <span class="p">,</span> <span class="nx">column</span><span class="o">=</span><span class="nx">col_index_num</span> <span class="p">,</span> <span class="nx">value</span><span class="o">=</span><span class="nx">l</span><span class="p">)</span>  <span class="err">#</span> <span class="nx">num索引从0开始</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title_wb</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">r</span><span class="s2">&#34;C:\Users\ASUS\Desktop\new.xlsx&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">href</span> <span class="o">=</span> <span class="nx">r</span><span class="s2">&#34;C:\Users\ASUS\Desktop\new.xlsx&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">x</span> <span class="o">=</span> <span class="nx">input</span><span class="p">(</span><span class="s2">&#34;输入列名&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">y</span> <span class="o">=</span> <span class="kr">int</span><span class="p">(</span><span class="nx">input</span><span class="p">(</span><span class="s2">&#34;输入列号&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nx">data</span> <span class="o">=</span> <span class="nx">input</span><span class="p">(</span><span class="s2">&#34;输入数据&#34;</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s2">&#34;,&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">row_update</span><span class="p">(</span><span class="nx">href</span><span class="p">,</span><span class="nx">data</span><span class="p">,</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>结果展示</strong>
+假设表格第一行1-6列有数据，现在要在其后面插入数据
+<img src="/p/%E9%80%9A%E8%BF%87pandas%E5%92%8Copenpyxl%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/%E6%95%B0%E6%8D%AE%E8%BF%BD%E5%8A%A0.gif"
+	width="1531"
+	height="801"
+	srcset="/p/%E9%80%9A%E8%BF%87pandas%E5%92%8Copenpyxl%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/%E6%95%B0%E6%8D%AE%E8%BF%BD%E5%8A%A0_hu4689413291366242659.gif 480w, /p/%E9%80%9A%E8%BF%87pandas%E5%92%8Copenpyxl%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/%E6%95%B0%E6%8D%AE%E8%BF%BD%E5%8A%A0_hu17301431285785311468.gif 1024w"
+	loading="lazy"
+	
+		alt="数据追加"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="191"
+		data-flex-basis="458px"
+	
+></li>
+</ul>
+<p>最终表格中就会有我新写入的数据了</p>
+<p><img src="/p/%E9%80%9A%E8%BF%87pandas%E5%92%8Copenpyxl%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/%E8%BF%BD%E5%8A%A0%E7%BB%93%E6%9E%9C.png"
+	width="1237"
+	height="346"
+	srcset="/p/%E9%80%9A%E8%BF%87pandas%E5%92%8Copenpyxl%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/%E8%BF%BD%E5%8A%A0%E7%BB%93%E6%9E%9C_hu3621333004712191836.png 480w, /p/%E9%80%9A%E8%BF%87pandas%E5%92%8Copenpyxl%E5%AE%9E%E7%8E%B0%E8%A1%A8%E6%A0%BC%E6%93%8D%E4%BD%9C/%E8%BF%BD%E5%8A%A0%E7%BB%93%E6%9E%9C_hu6606325330500661248.png 1024w"
+	loading="lazy"
+	
+		alt="追加结果"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="357"
+		data-flex-basis="858px"
+	
+></p>
+<hr>
 
 </section>
 
@@ -653,6 +1406,7 @@
         initCodeMoreBox();
         initScrollTop();
         topbar.hide();
+	initTocHide()
     })
 
 </script>
